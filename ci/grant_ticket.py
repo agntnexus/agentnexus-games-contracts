@@ -15,9 +15,13 @@ the grant ticket format (`D-100` in the AgentNexus decisions):
 - the clock may read from 30 seconds before the start to 30 seconds after the end;
 - the provider, the match and the seat are the ones being redeemed.
 
+One rule is not a sentence of the format but follows from it: the provider ID and the game version
+may hold no line break, LF or CR. Otherwise ("a\\nb", "c") and ("a", "b\\nc") would join to the same
+signed lines, and two different tickets would share one signature.
+
 What it does not check, because the format leaves it to later decisions: the session key behind the
-fingerprint (P-2), the operations a ticket permits (P-3), and the format of the provider ID and the
-game version, which the admitted manifest defines.
+fingerprint (P-2), the operations a ticket permits (P-3), and any other part of the format of the
+provider ID and the game version, which the admitted manifest defines.
 """
 
 from __future__ import annotations
@@ -50,6 +54,10 @@ UUID: Final = re.compile(
 SEAT: Final = re.compile(r"[A-Za-z0-9_-]{1,64}")
 FINGERPRINT: Final = re.compile(r"[0-9a-f]{64}")
 TIME: Final = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z")
+#: A line break inside a field would move text from one signed line into the next, so two tickets
+#: could share one signature. CR is refused with LF: a normaliser that turned it into LF would open
+#: the same second reading. Nothing else about the manifest values is fixed here.
+LINE_BREAK: Final = re.compile(r"[\r\n]")
 MAX_LIFETIME: Final = timedelta(seconds=120)
 SKEW: Final = timedelta(seconds=30)
 
@@ -73,6 +81,8 @@ def _well_formed(fields: dict[str, str]) -> bool:
     ):
         return False
     if not SEAT.fullmatch(fields["seat"]):
+        return False
+    if any(LINE_BREAK.search(fields[name]) for name in ("provider_id", "game_version")):
         return False
     if not FINGERPRINT.fullmatch(fields["session_key_fingerprint"]):
         return False

@@ -54,6 +54,8 @@ alone. `ci/test_grant_ticket.py` does exactly that on every change.
   of the signature's member. This file lists the fields and the signature as its own entries and
   defines no wire object.
 - **The format of the provider ID and the game version.** They are values of the admitted provider
-  manifest, whose format is not yet fixed. The values here are illustrative.
+  manifest, whose format is not yet fixed. The values here are illustrative. The reference check
+  refuses only a line break, LF or CR, in either: one would let two different tickets join to the
+  same signed lines and share one signature.
 - **The session key proof** (P-2), **the operations a ticket permits** (P-3), redemption, error codes
   and every other message of the protocol.

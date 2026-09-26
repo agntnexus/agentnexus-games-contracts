@@ -215,3 +215,35 @@ def test_each_binding_is_checked_against_the_redemption(
         c,
         {"match_id": "match", "provider_id": "provider", "seat": "seat"}[binding],
     )
+
+
+# One signed string, one ticket. A line break inside a field would let two different tickets share
+# the same signed bytes, and so the same signature.
+
+
+def test_two_tickets_with_the_same_signed_bytes_are_not_both_accepted() -> None:
+    """("a\\nb", "c") and ("a", "b\\nc") join to the same lines; neither may verify."""
+    doc, c = control()
+    first = dict(c["fields"], provider_id="a\nb", game_version="c")
+    second = dict(c["fields"], provider_id="a", game_version="b\nc")
+    assert canonical(first) == canonical(second), (
+        "the counterexample would prove nothing"
+    )
+    signature = resign(doc, first)
+    verdicts = [
+        verify(fields, signature, keys(doc), dict(c["context"], provider_id=provider))
+        for fields, provider in ((first, "a\nb"), (second, "a"))
+    ]
+    assert verdicts == [("refused", "format"), ("refused", "format")]
+
+
+@pytest.mark.parametrize("field", ["provider_id", "game_version"])
+@pytest.mark.parametrize("brk", ["\n", "\r", "\r\n"])
+def test_a_line_break_in_a_manifest_value_is_refused(field: str, brk: str) -> None:
+    """A carriage return too: a normaliser that turned it into LF would open a second reading."""
+    doc, c = control()
+    c["fields"][field] = c["fields"][field] + brk + "x"
+    c["signature"] = resign(doc, c["fields"])
+    if field == "provider_id":
+        c["context"]["provider_id"] = c["fields"]["provider_id"]
+    refused_on(doc, c, "format")
