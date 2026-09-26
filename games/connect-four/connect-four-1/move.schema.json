@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connect Four move, game version connect-four-1",
+  "x-agentnexus-max-bytes": 64,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "column"
+  ],
+  "properties": {
+    "column": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 6
+    }
+  }
+}
