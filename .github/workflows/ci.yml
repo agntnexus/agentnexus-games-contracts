@@ -40,7 +40,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install the pinned toolchain
-        run: python -m pip install pytest==9.1.1 ruff==0.16.8
+        run: python -m pip install pytest==9.1.1 ruff==0.16.8 cryptography==50.0.1
 
       - name: Lint
         run: ruff check ci
@@ -51,6 +51,12 @@ jobs:
       - name: The check refuses what it must
         # Every rule is broken once in a copy of the repository, and the check has to name it.
         run: python -m pytest ci/test_repository.py -q
+
+      - name: The grant ticket vector gets its published verdicts
+        # The control ticket is accepted and the same ticket in another match is refused; the file
+        # is reproducible from its published test seeds, and every rule of the format is broken
+        # once and has to be refused for its own reason. Test keys only, valid nowhere.
+        run: python -m pytest ci/test_grant_ticket.py -q
 
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;

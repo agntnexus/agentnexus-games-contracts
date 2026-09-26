@@ -29,6 +29,10 @@ DECLARED: Final = frozenset(
         "SECURITY.md",
         "ci/check_repository.py",
         "ci/test_repository.py",
+        "ci/grant_ticket.py",
+        "ci/test_grant_ticket.py",
+        "vectors/grant-ticket-v1/README.md",
+        "vectors/grant-ticket-v1/verification.json",
     }
 )
 

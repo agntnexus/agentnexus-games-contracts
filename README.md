@@ -6,9 +6,12 @@ access to anything private.
 
 ## Status
 
-**Nothing is published yet.** There is no contract version, no schema and no test vector in this
-repository. The first ones arrive through a reviewed change once the details they depend on are
-decided; until then, nothing here is a contract anyone may rely on.
+**No contract version is published.** There is no schema, tag, release or package. The repository
+holds one test vector, [`vectors/grant-ticket-v1/`](vectors/grant-ticket-v1/): how a provider
+verifies a match grant ticket's signature, window and bindings. It is test material signed with
+published test keys that are valid nowhere, and no ticket in it is a grant. Everything else arrives
+through reviewed changes once the details it depends on are decided; until then, nothing here is a
+contract anyone may rely on.
 
 ## What this repository holds
 
