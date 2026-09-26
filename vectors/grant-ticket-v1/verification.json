@@ -1,0 +1,77 @@
+{
+  "about": "Grant ticket verification under D-100. Test material only: every key here is a published test key that is valid nowhere, and no ticket here is a grant (D-101).",
+  "signed_line_version": "agentnexus-grant-v1",
+  "signed_lines": [
+    "agentnexus-grant-v1",
+    "key_id",
+    "ticket_id",
+    "match_id",
+    "seat",
+    "provider_id",
+    "game_version",
+    "session_key_fingerprint",
+    "not_before",
+    "not_after"
+  ],
+  "grant_verification_keys": [
+    {
+      "key_id": "6a3f8d2e-0c41-4b7a-9e15-2f0b7c9d4e11",
+      "public_key": "w/Tr+8PUsXwx06vOegtUoeqhSBd1lyOLvJhRfmWDL+I=",
+      "test_private_seed_hex": "b24b02b8f02469b4a7c20b131c269d9dfad0119d1c1e0c65d1e3913325b720a1",
+      "seed_is_sha256_of": "agentnexus-grant-v1 published test grant key 1, valid nowhere"
+    }
+  ],
+  "session_test_key": {
+    "public_key_hex": "2d24127e84537c20afba1cde64860e4988b9b5bb5a7769072efdb228eba34216",
+    "seed_is_sha256_of": "agentnexus-grant-v1 published test session key 1, valid nowhere"
+  },
+  "cases": [
+    {
+      "name": "control",
+      "description": "A ticket for this match, this seat and this provider, inside its window, signed by the published test key.",
+      "fields": {
+        "key_id": "6a3f8d2e-0c41-4b7a-9e15-2f0b7c9d4e11",
+        "ticket_id": "0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "session_key_fingerprint": "71ddb50300c7f7342f1436124ff155f7f9475a20d5353771b1d8700717c0c7e5",
+        "not_before": "2026-09-26T08:00:00Z",
+        "not_after": "2026-09-26T08:02:00Z"
+      },
+      "signature": "MigqBYP6fdChxyEjQJ81MYmmyIeoBbIXx8wcauNe9qlb0zcEMoKpQ5krUvcmuQ9ApYnietrYcUysOXnu3Ny8Aw==",
+      "context": {
+        "provider_id": "example-provider",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "now": "2026-09-26T08:01:00Z"
+      },
+      "expected": "accepted"
+    },
+    {
+      "name": "another-match",
+      "description": "The same ticket, redeemed in another match. The signature is valid; the match binding is not.",
+      "fields": {
+        "key_id": "6a3f8d2e-0c41-4b7a-9e15-2f0b7c9d4e11",
+        "ticket_id": "0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "session_key_fingerprint": "71ddb50300c7f7342f1436124ff155f7f9475a20d5353771b1d8700717c0c7e5",
+        "not_before": "2026-09-26T08:00:00Z",
+        "not_after": "2026-09-26T08:02:00Z"
+      },
+      "signature": "MigqBYP6fdChxyEjQJ81MYmmyIeoBbIXx8wcauNe9qlb0zcEMoKpQ5krUvcmuQ9ApYnietrYcUysOXnu3Ny8Aw==",
+      "context": {
+        "provider_id": "example-provider",
+        "match_id": "c4b3a291-8e7d-4f6c-a5b4-3c2d1e0f9a8b",
+        "seat": "seat-a",
+        "now": "2026-09-26T08:01:00Z"
+      },
+      "expected": "refused",
+      "refused_on": "match"
+    }
+  ]
+}
