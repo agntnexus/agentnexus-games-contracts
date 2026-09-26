@@ -25,8 +25,8 @@ from game_payloads import (
     message_verdict,
     payload_verdict,
     schema_refusals,
-    valid,
 )
+from json_schema import valid
 
 ROOT = Path(__file__).resolve().parents[1]
 GAME_VERSION = "connect-four-1"

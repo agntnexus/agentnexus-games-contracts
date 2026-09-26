@@ -33,6 +33,9 @@ DECLARED: Final = frozenset(
         "ci/test_grant_ticket.py",
         "ci/game_payloads.py",
         "ci/test_game_payloads.py",
+        "ci/json_schema.py",
+        "ci/provider_wire.py",
+        "ci/test_provider_wire.py",
         "games/connect-four/connect-four-1/README.md",
         "games/connect-four/connect-four-1/move.schema.json",
         "games/connect-four/connect-four-1/observation.schema.json",
@@ -40,6 +43,16 @@ DECLARED: Final = frozenset(
         "vectors/grant-ticket-v1/verification.json",
         "vectors/connect-four-1-payloads/README.md",
         "vectors/connect-four-1-payloads/cases.json",
+        "vectors/provider-wire-v1/README.md",
+        "vectors/provider-wire-v1/cases.json",
+        "vectors/provider-wire-v1/ticket-v2.schema.json",
+        "vectors/provider-wire-v1/redemption.schema.json",
+        "vectors/provider-wire-v1/resumption.schema.json",
+        "vectors/provider-wire-v1/action.schema.json",
+        "vectors/provider-wire-v1/seat-answer.schema.json",
+        "vectors/provider-wire-v1/resignation-instruction.schema.json",
+        "vectors/provider-wire-v1/resignation-acknowledgement.schema.json",
+        "vectors/provider-wire-v1/refusal.schema.json",
     }
 )
 

@@ -64,6 +64,12 @@ jobs:
         # and every negative one fails, and every bound and limit is proven at its edge.
         run: python -m pytest ci/test_game_payloads.py -q
 
+      - name: The provider wire vector gets its published answers
+        # The eight common schemas are D-114's; every key, ticket and message signature is
+        # reproducible from its published test seed; every step of every scenario gets its
+        # published answer; what D-114 leaves open stays open. Test keys only, valid nowhere.
+        run: python -m pytest ci/test_provider_wire.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,

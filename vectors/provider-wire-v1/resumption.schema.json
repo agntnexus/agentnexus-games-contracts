@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Resumption",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "seat_generation",
+    "sequence"
+  ],
+  "properties": {
+    "seat_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 2
+    }
+  }
+}

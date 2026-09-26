@@ -15,6 +15,9 @@ access to anything private.
   observation schemas of the first game version.
 - [`vectors/connect-four-1-payloads/`](vectors/connect-four-1-payloads/): their conformance cases
   and the size limits.
+- [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): the provider wire's common schemas and
+  scenarios of redemption, play and the refusals the wire decides, with published test keys that
+  are valid nowhere.
 
 The schemas become part of a contract version only by an explicit owner decision. Everything else
 arrives through reviewed changes once the details it depends on are decided; until then, nothing here
