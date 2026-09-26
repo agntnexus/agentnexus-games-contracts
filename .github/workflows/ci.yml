@@ -70,6 +70,12 @@ jobs:
         # published answer; what D-114 leaves open stays open. Test keys only, valid nowhere.
         run: python -m pytest ci/test_provider_wire.py -q
 
+      - name: An independent example client plays the wire
+        # Written from the public files alone, it imports no reference check: its signed
+        # messages are accepted step by step, and it discards an answer of an older seat
+        # generation and rejects an invalid observation or refusal. No network, test keys only.
+        run: python -m pytest ci/test_example_client.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,
