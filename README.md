@@ -29,8 +29,9 @@ host is refused.
 
 ## How it changes
 
-- `main` changes only through a pull request with at least one approving review and a green CI
-  run. There are no direct pushes and no force pushes, for administrators too.
+- `main` changes only through a pull request whose required CI check is green. No approving review
+  by another person is required, and only `proplaner` may merge into `main`. There are no direct
+  pushes, no force pushes and no deletion of `main`, for administrators too.
 - A contract version, tag, release or package is published only by an explicit owner decision.
   Merging a pull request publishes nothing.
 - CI runs on GitHub-hosted runners only, with read-only repository access and no secrets. A public
