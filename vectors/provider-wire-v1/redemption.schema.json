@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Redemption",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ticket",
+    "session_public_key",
+    "seat_generation",
+    "sequence"
+  ],
+  "properties": {
+    "ticket": {
+      "$ref": "ticket-v2.schema.json"
+    },
+    "session_public_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9+/]{43}=$"
+    },
+    "seat_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "sequence": {
+      "const": 1
+    }
+  }
+}

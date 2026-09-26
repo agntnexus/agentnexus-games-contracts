@@ -1,0 +1,2386 @@
+{
+  "about": "The Games provider wire, version 1, under D-114, with D-100's times and keys and D-118's body limits. Test material only: every key here is a published test key that is valid nowhere, and no ticket here is a grant (D-101). No contract version is published with this file.",
+  "decisions": [
+    "D-100",
+    "D-112",
+    "D-114",
+    "D-118"
+  ],
+  "provider_id": "example-provider",
+  "game_version": "connect-four-1",
+  "body_limits_from": "vectors/connect-four-1-payloads/cases.json",
+  "grant_verification_keys": [
+    {
+      "key_id": "3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5",
+      "public_key": "lB9uNVA93XRlmIHAeAJSC0b1aRP4xtI/rhNLh1v9FNQ=",
+      "test_private_seed_hex": "e32ebf4ef0e7faa38de61456c28e533dd6cacc9e406a1a9353418095e0215b66",
+      "seed_is_sha256_of": "agentnexus-grant-v2 published test grant key 1, valid nowhere"
+    }
+  ],
+  "unheld_grant_key": {
+    "key_id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+    "public_key": "Z6dpFNgTZWCvSk6ziaWpnhUWT3R4c6j99gNX42W3WAA=",
+    "test_private_seed_hex": "c9b24345d313cd60b22ba36f8d0b1656487e3733cbad875627555a15a1ca0831",
+    "seed_is_sha256_of": "agentnexus-grant-v2 published test grant key 2, held by no provider, valid nowhere"
+  },
+  "session_test_keys": [
+    {
+      "name": "session-1",
+      "public_key": "1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=",
+      "seed_is_sha256_of": "agentnexus-play-v1 published test session key 1, valid nowhere"
+    },
+    {
+      "name": "session-2",
+      "public_key": "IeKH7ODVZ4KYGrXK26/97Bay3UO11sn4v7poSViFgGU=",
+      "seed_is_sha256_of": "agentnexus-play-v1 published test session key 2, valid nowhere"
+    }
+  ],
+  "tickets": [
+    {
+      "name": "gen-1",
+      "session_key": "session-1",
+      "ticket": {
+        "version": "agentnexus-grant-v2",
+        "key_id": "3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5",
+        "ticket_id": "0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "seat_generation": 1,
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "session_key_fingerprint": "36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1",
+        "not_before": "2026-09-26T08:00:00Z",
+        "not_after": "2026-09-26T08:02:00Z",
+        "signature": "Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg=="
+      }
+    },
+    {
+      "name": "gen-2",
+      "session_key": "session-2",
+      "ticket": {
+        "version": "agentnexus-grant-v2",
+        "key_id": "3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5",
+        "ticket_id": "1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "seat_generation": 2,
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "session_key_fingerprint": "96ae3f98eddc880833605573c1e145df6fa668c61f2377442613a777cb3c7420",
+        "not_before": "2026-09-26T08:05:00Z",
+        "not_after": "2026-09-26T08:07:00Z",
+        "signature": "NjB6/tLJc6/MwIJWGjoi8M1IhCPHfoH7P6ObG5RetRotFBRKrUunvHb2M1P+0gA2OI6QS7D1yBWH4+vBkfdmBQ=="
+      }
+    },
+    {
+      "name": "gen-2-second",
+      "session_key": "session-2",
+      "ticket": {
+        "version": "agentnexus-grant-v2",
+        "key_id": "3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5",
+        "ticket_id": "2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "seat_generation": 2,
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "session_key_fingerprint": "96ae3f98eddc880833605573c1e145df6fa668c61f2377442613a777cb3c7420",
+        "not_before": "2026-09-26T08:05:00Z",
+        "not_after": "2026-09-26T08:07:00Z",
+        "signature": "f2NH0aWEC2gc0eRYsYyAA8KvbbaXLKVJnthXBKiSmlcf+SIOV4wskFvpdtuz/6TuftRqECQoQNItNe4lVd9rCA=="
+      }
+    },
+    {
+      "name": "unheld-key",
+      "session_key": "session-1",
+      "ticket": {
+        "version": "agentnexus-grant-v2",
+        "key_id": "c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f",
+        "ticket_id": "3c4d5e6f-7a8b-4c9d-8e0f-2a3b4c5d6e7f",
+        "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+        "seat": "seat-a",
+        "seat_generation": 1,
+        "provider_id": "example-provider",
+        "game_version": "connect-four-1",
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "session_key_fingerprint": "36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1",
+        "not_before": "2026-09-26T08:00:00Z",
+        "not_after": "2026-09-26T08:02:00Z",
+        "signature": "18dNf/beFoEL4bNsNhBvLTkwN2PGFJe8sj5G59Nw1v9qOktRIAzLYG4slYHKQBhNKITkWcx6FRXkXM8Y+G/hDw=="
+      }
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "redeem-and-play",
+      "description": "A seat is bound, makes one legal move, repeats it identically and resumes.",
+      "steps": [
+        {
+          "name": "redeem",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "8i2buwHGFYasDJNSiVxmIkhIGwquLgRrMRcJk+I4JrZOPEX3f2rcyBdVKNyq0MbWpH0s1RHwfb5ZjHPvwEhLCA=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 1,
+            "state_version": 0,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "first",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 0,
+              "last_move": null,
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 1,
+              "state_version": 0,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 0,
+                "last_move": null,
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "move-column-3",
+          "now": "2026-09-26T08:00:40Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RQDS1XDcrSYqv2g4qd/01EbDhsmrOgrFJ/2AxSqByf+Hfi8Jz3yHGwhK8t0ADGC53TUzG2lm9DE3VWbuAEHWBQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":0,\"move\":{\"column\":3}}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 2,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 2,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "the-same-move-again",
+          "now": "2026-09-26T08:00:41Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RQDS1XDcrSYqv2g4qd/01EbDhsmrOgrFJ/2AxSqByf+Hfi8Jz3yHGwhK8t0ADGC53TUzG2lm9DE3VWbuAEHWBQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":0,\"move\":{\"column\":3}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 2,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "resume",
+          "now": "2026-09-26T08:00:50Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/resumption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RdMiW85hy0fRGkqZZPbueNEAqdGK+j0Nzj4UnKpR4DDtqJAU4XeaF8NfVvtSBk382NPB7ge/utAXfA8aKBzCBg=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":3}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 3,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 3,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "sequence-and-state-refusals",
+      "description": "Refusals of the state stage and before it, on a bound seat.",
+      "steps": [
+        {
+          "name": "redeem",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "8i2buwHGFYasDJNSiVxmIkhIGwquLgRrMRcJk+I4JrZOPEX3f2rcyBdVKNyq0MbWpH0s1RHwfb5ZjHPvwEhLCA=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 1,
+            "state_version": 0,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "first",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 0,
+              "last_move": null,
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 1,
+              "state_version": 0,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 0,
+                "last_move": null,
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "move-column-3",
+          "now": "2026-09-26T08:00:40Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RQDS1XDcrSYqv2g4qd/01EbDhsmrOgrFJ/2AxSqByf+Hfi8Jz3yHGwhK8t0ADGC53TUzG2lm9DE3VWbuAEHWBQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":0,\"move\":{\"column\":3}}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 2,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 2,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "same-number-other-lines",
+          "because": "the last accepted number with other signed lines",
+          "now": "2026-09-26T08:00:41Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "VdF2tBsy7z1aDvMUD6CSrrSXJWyjEzxPjId8cYxROTHfz7Tr7aS9dSjKhNNlVOOpokS3xYG0LMJPnVX/ryIqCQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"8b7c6d5e-4f3a-4b2c-9d1e-0f9a8b7c6d5e\",\"expected_state_version\":0,\"move\":{\"column\":4}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "sequence_conflict"
+              }
+            }
+          }
+        },
+        {
+          "name": "resume",
+          "now": "2026-09-26T08:00:50Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/resumption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RdMiW85hy0fRGkqZZPbueNEAqdGK+j0Nzj4UnKpR4DDtqJAU4XeaF8NfVvtSBk382NPB7ge/utAXfA8aKBzCBg=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":3}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 3,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 3,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "the-earlier-move-again",
+          "because": "a number lower than the last accepted",
+          "now": "2026-09-26T08:00:51Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RQDS1XDcrSYqv2g4qd/01EbDhsmrOgrFJ/2AxSqByf+Hfi8Jz3yHGwhK8t0ADGC53TUzG2lm9DE3VWbuAEHWBQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":0,\"move\":{\"column\":3}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "sequence_stale"
+              }
+            }
+          }
+        },
+        {
+          "name": "a-number-skipped",
+          "because": "a number higher than the next",
+          "now": "2026-09-26T08:00:52Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "oeVAiBdqGun1r6HW0U53QqPACxSLz1+LzeJuz8Qf09CJIsu8pYgymj7uRuNzAZkE3/JL5ziYN0Q+wSft6nlUDQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":5,\"operation\":\"move\",\"idempotency_key\":\"7c6d5e4f-3a2b-4c1d-8e0f-9a8b7c6d5e4f\",\"expected_state_version\":1,\"move\":{\"column\":4}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "sequence_gap"
+              }
+            }
+          }
+        },
+        {
+          "name": "an-old-state-version",
+          "because": "the expected state version is not the current one",
+          "now": "2026-09-26T08:00:53Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "PLbhUhpySVMCatuPiainRjDOsIzBCV6PnhGm/dtuZp1wzb1BZY1YO+KEIcQv8W/ZN1DzsE00BzcN09mR2HkXAg=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":4,\"operation\":\"move\",\"idempotency_key\":\"7c6d5e4f-3a2b-4c1d-8e0f-9a8b7c6d5e4f\",\"expected_state_version\":0,\"move\":{\"column\":4}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "state_version_stale"
+              }
+            }
+          }
+        },
+        {
+          "name": "a-key-used-for-another-move",
+          "because": "the idempotency key was used with another move",
+          "now": "2026-09-26T08:00:54Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "+7pVVxIjOWHKS8Bg7iTGa7ys4CpH21lxw6+ba0QkfMK4diMZJoStm4tHnMlV4yWmH86vLTPdfM4NHtK83FMJDQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":4,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":1,\"move\":{\"column\":4}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "idempotency_conflict"
+              }
+            }
+          }
+        },
+        {
+          "name": "another-session-key",
+          "because": "signed with a key not bound to the seat",
+          "now": "2026-09-26T08:00:55Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-2",
+            "headers": {
+              "AgentNexus-Play-Signature": "p2nRhITCnUlElPYdS5UdzsyRB8pKpjxso9Sk9Q9xtesaxf8deJP9QRFeG7ZJ7g7FjmJTAZnWP2DGSUrUFJvGAw=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":4,\"operation\":\"move\",\"idempotency_key\":\"7c6d5e4f-3a2b-4c1d-8e0f-9a8b7c6d5e4f\",\"expected_state_version\":1,\"move\":{\"column\":4}}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 401,
+            "body": {
+              "error": {
+                "code": "unauthenticated"
+              }
+            }
+          }
+        },
+        {
+          "name": "an-unknown-member",
+          "because": "a member the action schema does not name",
+          "now": "2026-09-26T08:00:56Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "FeYcxjpdzAiVkh1lRJWe2ciP1LfYnEPddssKWlIynDYexN+CUp+CpYzA6D1dUY3Nh6xCoyXlsHZLmA6EEhwHAw=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":4,\"operation\":\"move\",\"idempotency_key\":\"7c6d5e4f-3a2b-4c1d-8e0f-9a8b7c6d5e4f\",\"expected_state_version\":1,\"move\":{\"column\":4},\"hint\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 400,
+            "body": {
+              "error": {
+                "code": "malformed_body"
+              }
+            }
+          }
+        },
+        {
+          "name": "one-byte-over-the-limit",
+          "because": "an action body of 5121 bytes, one over 1024 plus the move ceiling",
+          "now": "2026-09-26T08:00:57Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "rggtV1QrmPrf1FLxmh0IikUPiyQAAB5/IE5I0aZnK8ABvUxGxSyKwYHrHxtTgCCE7XPyQoeEUFK+LyjnFEgpCQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":4,\"operation\":\"move\",\"idempotency_key\":\"7c6d5e4f-3a2b-4c1d-8e0f-9a8b7c6d5e4f\",\"expected_state_version\":1,\"move\":{\"column\":4}}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    "
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 413,
+            "body": {
+              "error": {
+                "code": "too_large"
+              }
+            }
+          }
+        },
+        {
+          "name": "a-path-not-served",
+          "because": "W-6 serves no such path",
+          "now": "2026-09-26T08:00:58Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/chat",
+            "signed_by": null,
+            "headers": {},
+            "body": "{}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 404,
+            "body": null
+          }
+        }
+      ]
+    },
+    {
+      "name": "another-match",
+      "description": "The ticket for one match, redeemed on another match's path.",
+      "steps": [
+        {
+          "name": "redeem-in-another-match",
+          "because": "the ticket names another match than the path",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/7e6d5c4b-3a29-4180-9f7e-6d5c4b3a2918/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "HjKLlEJKReqPAhPXto9M9kDpDz4CDH8mK+vuHPTng/oiMeVXXpAuBDXKg2dy+/4q+IstaekhGYIOcohh/DZXCw=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 403,
+            "body": {
+              "error": {
+                "code": "ticket_match"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "a-grant-key-the-provider-does-not-hold",
+      "description": "A ticket signed with a published test key the provider does not hold.",
+      "steps": [
+        {
+          "name": "redeem",
+          "because": "the ticket names a grant key the provider does not hold",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "L67zWjS/OVDKOvy/Ru/Yjxjzof+uwb7Sz5HVylD7mzIPqri5nc8y5ZN1TcwY21fnHATvLYelTRyphrC1qxn3Aw=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"c4d5e6f7-a8b9-4c0d-9e1f-2a3b4c5d6e7f\",\"ticket_id\":\"3c4d5e6f-7a8b-4c9d-8e0f-2a3b4c5d6e7f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"18dNf/beFoEL4bNsNhBvLTkwN2PGFJe8sj5G59Nw1v9qOktRIAzLYG4slYHKQBhNKITkWcx6FRXkXM8Y+G/hDw==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 401,
+            "body": {
+              "error": {
+                "code": "unauthenticated"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "another-session-key",
+      "description": "A redemption whose session key is not the one the ticket's fingerprint binds.",
+      "steps": [
+        {
+          "name": "redeem",
+          "because": "the session public key is not the one the ticket binds",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-2",
+            "headers": {
+              "AgentNexus-Play-Signature": "t3yBUrtXoQlW4WRGP5ME1UrjvsiPSfy4faRnhs0FOvC9LB6xzSeHcvaAi63laIfASA4tcfdBbTyAkBESsPjcBQ=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"IeKH7ODVZ4KYGrXK26/97Bay3UO11sn4v7poSViFgGU=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 401,
+            "body": {
+              "error": {
+                "code": "unauthenticated"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "outside-the-window",
+      "description": "The ticket redeemed 31 seconds after it ended, one second past the skew.",
+      "steps": [
+        {
+          "name": "redeem",
+          "because": "the clock is outside the ticket's window and its skew",
+          "now": "2026-09-26T08:02:31Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "8i2buwHGFYasDJNSiVxmIkhIGwquLgRrMRcJk+I4JrZOPEX3f2rcyBdVKNyq0MbWpH0s1RHwfb5ZjHPvwEhLCA=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 401,
+            "body": {
+              "error": {
+                "code": "ticket_clock"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "rebinding",
+      "description": "A ticket of a higher generation rebinds the seat; the earlier key no longer authenticates.",
+      "steps": [
+        {
+          "name": "redeem",
+          "now": "2026-09-26T08:00:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "8i2buwHGFYasDJNSiVxmIkhIGwquLgRrMRcJk+I4JrZOPEX3f2rcyBdVKNyq0MbWpH0s1RHwfb5ZjHPvwEhLCA=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"0f9e8d7c-6b5a-4c3d-8e2f-1a0b9c8d7e6f\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":1,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"36b640d867d2b064f09ae4c4091ab69896621e1dc0ff791b74d86bda4b6e87c1\",\"not_before\":\"2026-09-26T08:00:00Z\",\"not_after\":\"2026-09-26T08:02:00Z\",\"signature\":\"Im7wNhl91MpNB58gosFBEeAvFNyr51OKVYfUHCXDl2OJpTccv7s+48VUs3B9THkP1ZGM0tAAebb6cW10cbXMCg==\"},\"session_public_key\":\"1WFJ5pW6+sC1G2ws6/7MJKc07IduKoCW18lWb5V1k+M=\",\"seat_generation\":1,\"sequence\":1}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 1,
+            "state_version": 0,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "first",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 0,
+              "last_move": null,
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 1,
+              "state_version": 0,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 0,
+                "last_move": null,
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "move-column-3",
+          "now": "2026-09-26T08:00:40Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/actions",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "RQDS1XDcrSYqv2g4qd/01EbDhsmrOgrFJ/2AxSqByf+Hfi8Jz3yHGwhK8t0ADGC53TUzG2lm9DE3VWbuAEHWBQ=="
+            },
+            "body": "{\"seat_generation\":1,\"sequence\":2,\"operation\":\"move\",\"idempotency_key\":\"9a8b7c6d-5e4f-4a3b-8c2d-1e0f9a8b7c6d\",\"expected_state_version\":0,\"move\":{\"column\":3}}"
+          },
+          "provider_answer": {
+            "seat_generation": 1,
+            "sequence": 2,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 1,
+              "sequence": 2,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "rebind",
+          "now": "2026-09-26T08:05:30Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-2",
+            "headers": {
+              "AgentNexus-Play-Signature": "kwOpCix/ykgfQ3LbNMxMJkEZRGqYjCw8c435/w50u1xPVc5cKfQBCb4KGWZPc4K6O3uSZ4S5P/JmTafqxA99CQ=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"1a2b3c4d-5e6f-4a7b-8c9d-0e1f2a3b4c5d\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":2,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"96ae3f98eddc880833605573c1e145df6fa668c61f2377442613a777cb3c7420\",\"not_before\":\"2026-09-26T08:05:00Z\",\"not_after\":\"2026-09-26T08:07:00Z\",\"signature\":\"NjB6/tLJc6/MwIJWGjoi8M1IhCPHfoH7P6ObG5RetRotFBRKrUunvHb2M1P+0gA2OI6QS7D1yBWH4+vBkfdmBQ==\"},\"session_public_key\":\"IeKH7ODVZ4KYGrXK26/97Bay3UO11sn4v7poSViFgGU=\",\"seat_generation\":2,\"sequence\":1}"
+          },
+          "provider_answer": {
+            "seat_generation": 2,
+            "sequence": 1,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 2,
+              "sequence": 1,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "the-earlier-key",
+          "because": "signed with the key a rebinding replaced",
+          "now": "2026-09-26T08:05:40Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/resumption",
+            "signed_by": "session-1",
+            "headers": {
+              "AgentNexus-Play-Signature": "tL1sflpnQmtG8x/oJ3SZwzuLBaGK+q/8VJ+VZ0JpMVYmVpve/2rxUzZlr6m71RvkR7Al5jt/f16Iot9+iJfHAQ=="
+            },
+            "body": "{\"seat_generation\":2,\"sequence\":2}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 401,
+            "body": {
+              "error": {
+                "code": "unauthenticated"
+              }
+            }
+          }
+        },
+        {
+          "name": "resume-with-the-new-key",
+          "now": "2026-09-26T08:05:41Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/resumption",
+            "signed_by": "session-2",
+            "headers": {
+              "AgentNexus-Play-Signature": "cZ1v5WcZBmHCXYI7Tv0kWg2XrumMV9sO9YJDGoElyClQRkcQkTy6FSt6ucWnBNyPUCe3GFrhsrQ4Y/qFcfE6Dw=="
+            },
+            "body": "{\"seat_generation\":2,\"sequence\":2}"
+          },
+          "provider_answer": {
+            "seat_generation": 2,
+            "sequence": 2,
+            "state_version": 1,
+            "status": "active",
+            "observation": {
+              "board": [
+                [
+                  null,
+                  null,
+                  null,
+                  "first",
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ],
+                [
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null,
+                  null
+                ]
+              ],
+              "you_are": "first",
+              "to_move": "second",
+              "legal_columns": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "move_count": 1,
+              "last_move": {
+                "seat": "first",
+                "column": 3,
+                "row": 0
+              },
+              "result": null
+            }
+          },
+          "expected": {
+            "status": 200,
+            "body": {
+              "seat_generation": 2,
+              "sequence": 2,
+              "state_version": 1,
+              "status": "active",
+              "observation": {
+                "board": [
+                  [
+                    null,
+                    null,
+                    null,
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "you_are": "first",
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            }
+          }
+        },
+        {
+          "name": "a-ticket-of-the-same-generation",
+          "because": "a ticket whose generation is not higher than the one held",
+          "now": "2026-09-26T08:05:50Z",
+          "request": {
+            "method": "POST",
+            "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/seats/seat-a/redemption",
+            "signed_by": "session-2",
+            "headers": {
+              "AgentNexus-Play-Signature": "l+LxLujXK+alrHZzmkhJC4zXfZrMIFLkJ/F4XFWkwcMna467BKgJksX9tuLMJjZyMnXgA4vBbswVqStQSi7gAw=="
+            },
+            "body": "{\"ticket\":{\"version\":\"agentnexus-grant-v2\",\"key_id\":\"3b1e7c5a-9d2f-4a86-b0c4-e8f1a2d3c4b5\",\"ticket_id\":\"2b3c4d5e-6f7a-4b8c-9d0e-1f2a3b4c5d6e\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"seat\":\"seat-a\",\"seat_generation\":2,\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"operations\":[\"move\",\"resign\"],\"session_key_fingerprint\":\"96ae3f98eddc880833605573c1e145df6fa668c61f2377442613a777cb3c7420\",\"not_before\":\"2026-09-26T08:05:00Z\",\"not_after\":\"2026-09-26T08:07:00Z\",\"signature\":\"f2NH0aWEC2gc0eRYsYyAA8KvbbaXLKVJnthXBKiSmlcf+SIOV4wskFvpdtuz/6TuftRqECQoQNItNe4lVd9rCA==\"},\"session_public_key\":\"IeKH7ODVZ4KYGrXK26/97Bay3UO11sn4v7poSViFgGU=\",\"seat_generation\":2,\"sequence\":1}"
+          },
+          "provider_answer": null,
+          "expected": {
+            "status": 409,
+            "body": {
+              "error": {
+                "code": "generation_stale"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

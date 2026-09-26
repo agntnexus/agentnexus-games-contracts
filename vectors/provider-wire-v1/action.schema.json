@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Action",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "seat_generation",
+    "sequence",
+    "operation",
+    "idempotency_key",
+    "expected_state_version"
+  ],
+  "properties": {
+    "seat_generation": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "operation": {
+      "enum": [
+        "move",
+        "resign"
+      ]
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "expected_state_version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "move": {
+      "$ref": "#/$defs/game_payload"
+    }
+  },
+  "if": {
+    "properties": {
+      "operation": {
+        "const": "move"
+      }
+    }
+  },
+  "then": {
+    "required": [
+      "move"
+    ]
+  },
+  "else": {
+    "not": {
+      "required": [
+        "move"
+      ]
+    }
+  },
+  "$defs": {
+    "game_payload": {
+      "type": "object",
+      "description": "The game version's own move; its schema is open (WQ-1)"
+    }
+  }
+}
