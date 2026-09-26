@@ -1,0 +1,1104 @@
+{
+  "description": "Conformance cases for the payloads of game version connect-four-1 and the size limits, as D-118 fixes them. Test material: no case is a move in a real match, and no contract version is published with this file.",
+  "decision": "D-118",
+  "game_version": "connect-four-1",
+  "schemas": {
+    "move": "games/connect-four/connect-four-1/move.schema.json",
+    "observation": "games/connect-four/connect-four-1/observation.schema.json"
+  },
+  "shared_ceilings": {
+    "move": 4096,
+    "observation": 65536
+  },
+  "message_limits": [
+    {
+      "message": "redemption",
+      "fixed_bytes": 4096,
+      "plus": null,
+      "over_limit_code": "too_large"
+    },
+    {
+      "message": "resumption",
+      "fixed_bytes": 1024,
+      "plus": null,
+      "over_limit_code": "too_large"
+    },
+    {
+      "message": "action",
+      "fixed_bytes": 1024,
+      "plus": "move_ceiling",
+      "over_limit_code": "too_large"
+    },
+    {
+      "message": "resignation_instruction",
+      "fixed_bytes": 2048,
+      "plus": null,
+      "over_limit_code": "too_large"
+    },
+    {
+      "message": "resignation_acknowledgement",
+      "fixed_bytes": 1024,
+      "plus": null,
+      "over_limit_code": null
+    },
+    {
+      "message": "seat_answer",
+      "fixed_bytes": 1024,
+      "plus": "observation_bound",
+      "over_limit_code": null
+    },
+    {
+      "message": "refusal",
+      "fixed_bytes": 1024,
+      "plus": null,
+      "over_limit_code": null
+    }
+  ],
+  "move_cases": [
+    {
+      "name": "column-0",
+      "expected": "valid",
+      "move": {
+        "column": 0
+      }
+    },
+    {
+      "name": "column-6",
+      "expected": "valid",
+      "move": {
+        "column": 6
+      }
+    },
+    {
+      "name": "column-minus-1",
+      "expected": "invalid",
+      "because": "below column 0",
+      "move": {
+        "column": -1
+      }
+    },
+    {
+      "name": "column-7",
+      "expected": "invalid",
+      "because": "above column 6",
+      "move": {
+        "column": 7
+      }
+    },
+    {
+      "name": "no-column",
+      "expected": "invalid",
+      "because": "`column` is required",
+      "move": {}
+    },
+    {
+      "name": "column-as-string",
+      "expected": "invalid",
+      "because": "a column is an integer",
+      "move": {
+        "column": "3"
+      }
+    },
+    {
+      "name": "column-as-fraction",
+      "expected": "invalid",
+      "because": "a column is an integer",
+      "move": {
+        "column": 2.5
+      }
+    },
+    {
+      "name": "column-as-boolean",
+      "expected": "invalid",
+      "because": "`true` is not an integer",
+      "move": {
+        "column": true
+      }
+    },
+    {
+      "name": "unknown-member",
+      "expected": "invalid",
+      "because": "a member the schema does not name",
+      "move": {
+        "column": 3,
+        "row": 0
+      }
+    }
+  ],
+  "observation_cases": [
+    {
+      "name": "opening",
+      "expected": "valid",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "first-won",
+      "expected": "valid",
+      "observation": {
+        "board": [
+          [
+            "first",
+            "second",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "first",
+            "second",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "first",
+            "second",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "first",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "second",
+        "to_move": null,
+        "legal_columns": [],
+        "move_count": 7,
+        "last_move": {
+          "seat": "first",
+          "column": 0,
+          "row": 3
+        },
+        "result": {
+          "outcome": "win",
+          "winner": "first"
+        }
+      }
+    },
+    {
+      "name": "unknown-field",
+      "expected": "invalid",
+      "because": "a member the schema does not name",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null,
+        "opponent": "first"
+      }
+    },
+    {
+      "name": "missing-field",
+      "expected": "invalid",
+      "because": "`result` is required",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null
+      }
+    },
+    {
+      "name": "five-rows",
+      "expected": "invalid",
+      "because": "the board has exactly six rows",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "unknown-cell",
+      "expected": "invalid",
+      "because": "a cell is null, `first` or `second`",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            "third",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "repeated-legal-column",
+      "expected": "invalid",
+      "because": "legal columns are unique",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          0
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "move-count-over-42",
+      "expected": "invalid",
+      "because": "a board of 42 cells takes at most 42 moves",
+      "observation": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "you_are": "first",
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 43,
+        "last_move": null,
+        "result": null
+      }
+    }
+  ],
+  "payload_size_cases": [
+    {
+      "name": "move-at-bound",
+      "payload": "move",
+      "value": {
+        "column": 6
+      },
+      "pad_to_bytes": 64,
+      "expected": "within_bound"
+    },
+    {
+      "name": "move-over-bound",
+      "payload": "move",
+      "value": {
+        "column": 6
+      },
+      "pad_to_bytes": 65,
+      "expected": "over_bound"
+    },
+    {
+      "name": "observation-largest-compact",
+      "payload": "observation",
+      "value": {
+        "board": [
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ]
+        ],
+        "you_are": "second",
+        "to_move": "second",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 42,
+        "last_move": {
+          "seat": "second",
+          "column": 6,
+          "row": 5
+        },
+        "result": {
+          "outcome": "draw",
+          "winner": "second"
+        }
+      },
+      "pad_to_bytes": 582,
+      "expected": "within_bound"
+    },
+    {
+      "name": "observation-at-bound",
+      "payload": "observation",
+      "value": {
+        "board": [
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ]
+        ],
+        "you_are": "second",
+        "to_move": "second",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 42,
+        "last_move": {
+          "seat": "second",
+          "column": 6,
+          "row": 5
+        },
+        "result": {
+          "outcome": "draw",
+          "winner": "second"
+        }
+      },
+      "pad_to_bytes": 2048,
+      "expected": "within_bound"
+    },
+    {
+      "name": "observation-over-bound",
+      "payload": "observation",
+      "value": {
+        "board": [
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ],
+          [
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second",
+            "second"
+          ]
+        ],
+        "you_are": "second",
+        "to_move": "second",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 42,
+        "last_move": {
+          "seat": "second",
+          "column": 6,
+          "row": 5
+        },
+        "result": {
+          "outcome": "draw",
+          "winner": "second"
+        }
+      },
+      "pad_to_bytes": 2049,
+      "expected": "over_bound"
+    }
+  ],
+  "message_size_cases": [
+    {
+      "name": "redemption-at-limit",
+      "message": "redemption",
+      "length": 4096,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "redemption-one-byte-over",
+      "message": "redemption",
+      "length": 4097,
+      "expected": "over_limit",
+      "code": "too_large"
+    },
+    {
+      "name": "resumption-at-limit",
+      "message": "resumption",
+      "length": 1024,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "resumption-one-byte-over",
+      "message": "resumption",
+      "length": 1025,
+      "expected": "over_limit",
+      "code": "too_large"
+    },
+    {
+      "name": "action-at-limit",
+      "message": "action",
+      "length": 5120,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "action-one-byte-over",
+      "message": "action",
+      "length": 5121,
+      "expected": "over_limit",
+      "code": "too_large"
+    },
+    {
+      "name": "resignation-instruction-at-limit",
+      "message": "resignation_instruction",
+      "length": 2048,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "resignation-instruction-one-byte-over",
+      "message": "resignation_instruction",
+      "length": 2049,
+      "expected": "over_limit",
+      "code": "too_large"
+    },
+    {
+      "name": "resignation-acknowledgement-at-limit",
+      "message": "resignation_acknowledgement",
+      "length": 1024,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "resignation-acknowledgement-one-byte-over",
+      "message": "resignation_acknowledgement",
+      "length": 1025,
+      "expected": "over_limit",
+      "code": null
+    },
+    {
+      "name": "seat-answer-at-limit",
+      "message": "seat_answer",
+      "length": 3072,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "seat-answer-one-byte-over",
+      "message": "seat_answer",
+      "length": 3073,
+      "expected": "over_limit",
+      "code": null
+    },
+    {
+      "name": "refusal-at-limit",
+      "message": "refusal",
+      "length": 1024,
+      "expected": "within_limit",
+      "code": null
+    },
+    {
+      "name": "refusal-one-byte-over",
+      "message": "refusal",
+      "length": 1025,
+      "expected": "over_limit",
+      "code": null
+    }
+  ]
+}

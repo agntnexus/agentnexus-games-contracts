@@ -58,6 +58,12 @@ jobs:
         # once and has to be refused for its own reason. Test keys only, valid nowhere.
         run: python -m pytest ci/test_grant_ticket.py -q
 
+      - name: The Connect Four payloads and size limits get their published verdicts
+        # The connect-four-1 move and observation schemas hold the values D-118 accepted, every
+        # observation field carries a data class and a retained flag, every positive case passes
+        # and every negative one fails, and every bound and limit is proven at its edge.
+        run: python -m pytest ci/test_game_payloads.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,

@@ -6,12 +6,19 @@ access to anything private.
 
 ## Status
 
-**No contract version is published.** There is no schema, tag, release or package. The repository
-holds one test vector, [`vectors/grant-ticket-v1/`](vectors/grant-ticket-v1/): how a provider
-verifies a match grant ticket's signature, window and bindings. It is test material signed with
-published test keys that are valid nowhere, and no ticket in it is a grant. Everything else arrives
-through reviewed changes once the details it depends on are decided; until then, nothing here is a
-contract anyone may rely on.
+**No contract version is published.** There is no tag, release or package. The repository holds:
+
+- [`vectors/grant-ticket-v1/`](vectors/grant-ticket-v1/): how a provider verifies a match grant
+  ticket's signature, window and bindings. It is test material signed with published test keys
+  that are valid nowhere, and no ticket in it is a grant.
+- [`games/connect-four/connect-four-1/`](games/connect-four/connect-four-1/): the move and
+  observation schemas of the first game version.
+- [`vectors/connect-four-1-payloads/`](vectors/connect-four-1-payloads/): their conformance cases
+  and the size limits.
+
+The schemas become part of a contract version only by an explicit owner decision. Everything else
+arrives through reviewed changes once the details it depends on are decided; until then, nothing here
+is a contract anyone may rely on.
 
 ## What this repository holds
 
