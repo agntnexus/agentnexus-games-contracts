@@ -36,6 +36,8 @@ DECLARED: Final = frozenset(
         "ci/json_schema.py",
         "ci/provider_wire.py",
         "ci/test_provider_wire.py",
+        "ci/example_client.py",
+        "ci/test_example_client.py",
         "games/connect-four/connect-four-1/README.md",
         "games/connect-four/connect-four-1/move.schema.json",
         "games/connect-four/connect-four-1/observation.schema.json",

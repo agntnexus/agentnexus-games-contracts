@@ -18,6 +18,8 @@ access to anything private.
 - [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): the provider wire's common schemas and
   scenarios of redemption, play and the refusals the wire decides, with published test keys that
   are valid nowhere.
+- [`ci/example_client.py`](ci/example_client.py): test code, an example client of that wire, written from
+  the public files alone and played against the reference check in CI, without a network.
 
 The schemas become part of a contract version only by an explicit owner decision. Everything else
 arrives through reviewed changes once the details it depends on are decided; until then, nothing here
