@@ -26,8 +26,8 @@ On the provider's origin:
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resignation-instructions` | An owner's resignation | The API's instruction key |
 | `GET /agentnexus-games/v1/matches/{match_id}/spectator` | Read-only watching | A read capability |
 
-On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The manifest,
-outcome and spectator schemas are not in this directory yet.
+On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The outcome
+and spectator schemas are not in this directory yet.
 
 ## Schemas
 
@@ -39,6 +39,18 @@ JSON Schema 2020-12, strict: a member a schema does not name is refused.
 [`refusal`](refusal.schema.json). They are `D-114`'s, and `sequence`, `state_version` and
 `expected_state_version` carry `D-123`'s maximum, 9007199254740991. A game's own `move` and
 `observation` are validated against the game version's schemas.
+
+## The manifest
+
+A provider declares itself with a manifest, [`manifest.schema.json`](manifest.schema.json): its
+`provider_id`, the contract versions it implements by name (`"agentnexus-games-v1"`), one to four
+exact `https` origins with an optional port and no IP address, path or trailing slash, its game
+versions with their turn deadlines, the operations `move` and `resign`, one or two outcome keys, its
+action rate and its replay retention. The deadline, rate and retention are positive integers; their
+values, and admission itself, are not part of this contract. A manifest fits this contract when
+one of its versions is implemented here, every game version has a directory in
+[`games/`](../../games/), its operations are exactly `move` and `resign`, and every origin is
+`https`.
 
 ## Signed bytes
 

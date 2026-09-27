@@ -1,0 +1,565 @@
+{
+  "about": "Provider manifests of agentnexus-games-v1 under D-123 and D-124: one the check accepts and one for every rule it refuses. Test material only: the outcome key is a published test key valid nowhere, the origins are documentation hosts, and the deadline, rate and retention are illustrative numbers, not values for #82 or #87. No contract version is published with this file.",
+  "decisions": [
+    "D-123",
+    "D-124"
+  ],
+  "outcome_test_key": {
+    "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+    "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY=",
+    "seed_is_sha256_of": "agentnexus-outcome-v1 published test outcome key 1, valid nowhere"
+  },
+  "cases": [
+    {
+      "name": "accepted",
+      "expected": "accepted",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "an-unknown-contract-version",
+      "expected": "refused",
+      "refused_for": "contract_version",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v2"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-game-version-with-no-directory",
+      "expected": "refused",
+      "refused_for": "game_version",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "chess-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "operations-not-both",
+      "expected": "refused",
+      "refused_for": "operations",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "an-origin-not-https",
+      "expected": "refused",
+      "refused_for": "origin",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "http://games.example.org"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "an-IP-address-as-host",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "an IP address as host",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://192.0.2.7"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-path-after-the-origin",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a path after the origin",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org/play"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-trailing-slash",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a trailing slash",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org/"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "port-0",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "port 0",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org:0"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "port-65536",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "port 65536",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org:65536"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-zero-turn-deadline",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a zero turn deadline",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 0
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-zero-action-rate",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a zero action rate",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 0,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "a-zero-retention",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a zero retention",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 0
+      }
+    },
+    {
+      "name": "a-version-number-instead-of-its-name",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "a version number instead of its name",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          1
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "five-origins",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "five origins",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://g1.example.org",
+          "https://g2.example.org",
+          "https://g3.example.org",
+          "https://g4.example.org",
+          "https://g5.example.org"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30
+      }
+    },
+    {
+      "name": "an-unknown-member",
+      "expected": "refused",
+      "refused_for": "schema",
+      "breaks": "an unknown member",
+      "manifest": {
+        "version": "agentnexus-manifest-v1",
+        "provider_id": "example-provider",
+        "contract_versions": [
+          "agentnexus-games-v1"
+        ],
+        "origins": [
+          "https://games.example.org",
+          "https://games.example.org:8443"
+        ],
+        "games": [
+          {
+            "game_version": "connect-four-1",
+            "turn_deadline_seconds": 60
+          }
+        ],
+        "operations": [
+          "move",
+          "resign"
+        ],
+        "outcome_keys": [
+          {
+            "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+            "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY="
+          }
+        ],
+        "action_rate_per_minute": 30,
+        "replay_retention_days": 30,
+        "notes": "not a member of the manifest"
+      }
+    }
+  ]
+}

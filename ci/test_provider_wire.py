@@ -242,9 +242,9 @@ def test_a_counter_over_its_maximum_is_malformed() -> None:
 
 
 def test_the_schemas_are_d114s_eight() -> None:
-    assert sorted(path.name for path in PROTOCOL.glob("*.schema.json")) == sorted(
-        SCHEMA_SHA256
-    )
+    """The wire's eight are in `protocol/v1/`; the manifest and others have tests of their own."""
+    present = {path.name for path in PROTOCOL.glob("*.schema.json")}
+    assert set(SCHEMA_SHA256) <= present
     for name, digest in SCHEMA_SHA256.items():
         canonical = json.dumps(
             load(PROTOCOL / name), sort_keys=True, separators=(",", ":")
