@@ -24,10 +24,10 @@ On the provider's origin:
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resumption` | `resume`: the seat's current observation | The session key |
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/actions` | `act`: one operation, `move` or `resign` | The session key |
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resignation-instructions` | An owner's resignation | The API's instruction key |
+| `POST /agentnexus-games/v1/matches/{match_id}/spectator/capability` | A read capability, public, empty body | Nobody |
 | `GET /agentnexus-games/v1/matches/{match_id}/spectator` | Read-only watching | A read capability |
 
-On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The manifest,
-outcome and spectator schemas are not in this directory yet.
+On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome.
 
 ## Schemas
 
@@ -39,6 +39,42 @@ JSON Schema 2020-12, strict: a member a schema does not name is refused.
 [`refusal`](refusal.schema.json). They are `D-114`'s, and `sequence`, `state_version` and
 `expected_state_version` carry `D-123`'s maximum, 9007199254740991. A game's own `move` and
 `observation` are validated against the game version's schemas.
+
+## The manifest
+
+A provider declares itself with a manifest, [`manifest.schema.json`](manifest.schema.json): its
+`provider_id`, the contract versions it implements by name (`"agentnexus-games-v1"`), one to four
+exact `https` origins with an optional port and no IP address, path or trailing slash, its game
+versions with their turn deadlines, the operations `move` and `resign`, one or two outcome keys, its
+action rate and its replay retention. The deadline, rate and retention are positive integers; their
+values, and admission itself, are not part of this contract. A manifest fits this contract when
+one of its versions is implemented here, every game version has a directory in
+[`games/`](../../games/), its operations are exactly `move` and `resign`, and every origin is
+`https`.
+
+## The outcome
+
+A provider sends one outcome per match to the API, [`outcome.schema.json`](outcome.schema.json), at
+most 2048 bytes, signed with an outcome key of its manifest. It is public and every member is
+retained. The API checks size (`too_large`), schema (`malformed_body`), the signature
+(`unauthenticated`), and the bindings: another provider's match is `outcome_provider` and another
+game version `outcome_game`, both 403. It answers 200 with [`outcome-answer`](outcome-answer.schema.json):
+`recorded` for the first outcome, `already_recorded` only for byte-identical signed lines,
+`disputed` for any other, which never overwrites the first, and `evidence_only` for a match already
+aborted or cancelled. `replay_digest` is the SHA-256 of the exact replay bytes `replay_reference`
+names; the general replay format is not part of this contract.
+
+## The spectator
+
+Every match is public. A viewer obtains a capability from the provider, 43 characters of base64url,
+bound to the match and valid for at most 300 seconds, [`spectator-capability`](spectator-capability.schema.json),
+and sends it in the header `AgentNexus-Watch-Capability`. The answer, [`spectator-answer`](spectator-answer.schema.json),
+carries the current snapshot and, with `after=n`, at most 16 events from n+1, each a view the game
+version's `spectator.schema.json` accepts: the observation's `public` fields without those naming the
+viewer. Any method but `GET` on the spectator path is refused 405 `read_only` before a capability is
+looked at; a missing, unknown, expired or another match's capability is refused 401
+`unauthenticated`. No URL, asset, markup or free-form text reaches the browser, and an answer is at
+most 1024 bytes plus 17 times the game's observation bound.
 
 ## Signed bytes
 
@@ -53,6 +89,10 @@ not rebuild.
   the sequence and the SHA-256 of the exact body bytes, in lowercase hexadecimal. Its signature
   travels in the header `AgentNexus-Play-Signature`. A redemption's body also carries the session
   public key, whose SHA-256 is the ticket's fingerprint.
+- **The outcome:** `agentnexus-outcome-v1`, `key_id`, `match_id`, `provider_id`, `game_version`,
+  `result`, `reason`, `winner_seat` (the empty line when `null`), `solo` (`true` or `false`),
+  `final_state_version`, `replay_digest`, `replay_reference`, `reported_at`. Its signature is the
+  member `signature`.
 
 ## The check order
 
@@ -78,6 +118,7 @@ refusal body carries its code and nothing else; a path the provider does not ser
 | Code | Status | Stage |
 | --- | --- | --- |
 | `too_large` | 413 | Size |
+| `read_only` | 405 | Any method but `GET` on the spectator path |
 | `malformed_body` | 400 | Schema, or the game payload |
 | `unauthenticated` | 401 | Authentication |
 | `ticket_lifetime`, `ticket_clock`, `instruction_window` | 401 | Freshness |

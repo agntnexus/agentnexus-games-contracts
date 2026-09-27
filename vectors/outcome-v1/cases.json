@@ -1,0 +1,178 @@
+{
+  "about": "The provider's signed outcome of agentnexus-games-v1 under D-123 and D-124, and the API's answers to a scenario of outcomes. Test material only: every key here is a published test key that is valid nowhere, and the replay record is test bytes. No contract version is published with this file.",
+  "decisions": [
+    "D-123",
+    "D-124"
+  ],
+  "test_replay_record_utf8": "agentnexus-games-contracts test replay record 1, valid nowhere",
+  "test_replay_digest": "ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846",
+  "outcome_keys_by_provider": {
+    "example-provider": [
+      {
+        "key_id": "5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b",
+        "public_key": "RuWs1W+tnWv+tYbIc17QVu37pZBiKXL938oyCiiOIUY=",
+        "seed_is_sha256_of": "agentnexus-outcome-v1 published test outcome key 1, valid nowhere"
+      }
+    ],
+    "other-provider": [
+      {
+        "key_id": "6f5e4d3c-2b1a-4098-8e7d-6c5b4a3f2e1d",
+        "public_key": "tLUNHHJ7C6SQjytXfTPSLuY1cRXg7XOx3Ry/exZeYS8=",
+        "seed_is_sha256_of": "agentnexus-outcome-v1 published test outcome key 2, valid nowhere"
+      }
+    ]
+  },
+  "unheld_keys": [
+    {
+      "key_id": "7a6f5e4d-3c2b-41a0-9f8e-7d6c5b4a3f2e",
+      "public_key": "RxYxpNMqPRw6fdIXJFK0hGESQJ6Opuxmr3oacJY6uk8=",
+      "seed_is_sha256_of": "agentnexus-outcome-v1 published test outcome key 3, held by no manifest, valid nowhere"
+    }
+  ],
+  "matches": {
+    "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a": {
+      "provider_id": "example-provider",
+      "game_version": "connect-four-1",
+      "state": "granted"
+    },
+    "8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19": {
+      "provider_id": "example-provider",
+      "game_version": "connect-four-1",
+      "state": "aborted"
+    }
+  },
+  "steps": [
+    {
+      "name": "a-win",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"xgpCDL+mpVQv0+r7rK+hPCOE6seRwdtRfV0UcFBnxh6z25Ff2IQ4/AuD58aOPLmrQbzqWg9yLI5+S9beCugMBQ==\"}",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "status": "recorded"
+        }
+      }
+    },
+    {
+      "name": "the-same-outcome-again",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"xgpCDL+mpVQv0+r7rK+hPCOE6seRwdtRfV0UcFBnxh6z25Ff2IQ4/AuD58aOPLmrQbzqWg9yLI5+S9beCugMBQ==\"}",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "status": "already_recorded"
+        }
+      }
+    },
+    {
+      "name": "the-same-lines-in-another-body",
+      "body": "{\"signature\":\"xgpCDL+mpVQv0+r7rK+hPCOE6seRwdtRfV0UcFBnxh6z25Ff2IQ4/AuD58aOPLmrQbzqWg9yLI5+S9beCugMBQ==\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"replay_reference\":\"replay-000001\",\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"final_state_version\":7,\"solo\":false,\"winner_seat\":\"seat-a\",\"reason\":\"rules\",\"result\":\"win\",\"game_version\":\"connect-four-1\",\"provider_id\":\"example-provider\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"version\":\"agentnexus-outcome-v1\"}",
+      "because": "the 13 signed lines are byte-identical; only the body's member order differs",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "status": "already_recorded"
+        }
+      }
+    },
+    {
+      "name": "a-different-outcome",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"draw\",\"reason\":\"rules\",\"winner_seat\":null,\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"vRhmTeH3Nix+KXfO52phNrKR1RxaM/CD7T2K2uWNd5ocTuqG4awDMb8h021OVk5RPLG+A3q7/JOAlH3eKUXlCw==\"}",
+      "because": "other signed lines for a recorded match; the first record stays",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "status": "disputed"
+        }
+      }
+    },
+    {
+      "name": "an-aborted-match",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"aborted\",\"reason\":\"provider\",\"winner_seat\":null,\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"nFeA3BEZdlJa66IcWLIm20O3XX0HQDqvQozG3Qg5ndDNJHTcb+1SwEN0atRCdHMt+jQgV9uompp2lrnVyiOmDA==\"}",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19",
+          "status": "evidence_only"
+        }
+      }
+    },
+    {
+      "name": "a-key-no-manifest-holds",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"7a6f5e4d-3c2b-41a0-9f8e-7d6c5b4a3f2e\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"pzZNUNOC26iKB+DviO4lqzthsKUGuEuYVaHaArT38J8viR/dVar1jO1Hr4eTr69VqM/TmxlduXdNLrPOTggWDg==\"}",
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    },
+    {
+      "name": "a-signature-that-does-not-verify",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":8,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"xgpCDL+mpVQv0+r7rK+hPCOE6seRwdtRfV0UcFBnxh6z25Ff2IQ4/AuD58aOPLmrQbzqWg9yLI5+S9beCugMBQ==\"}",
+      "signed_as_published": false,
+      "because": "final_state_version changed after signing",
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    },
+    {
+      "name": "another-providers-outcome",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"6f5e4d3c-2b1a-4098-8e7d-6c5b4a3f2e1d\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"other-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"kp1bncPZeQrsBgB52IHNkbVnOzWCXEd6KzQzhm60sUs18K/rbD4F6fxfR8nnnslknKcpcYG2z1v2g8/VtcpZBw==\"}",
+      "because": "signed by other-provider's own key, for a match example-provider plays",
+      "expected": {
+        "status": 403,
+        "body": {
+          "error": {
+            "code": "outcome_provider"
+          }
+        }
+      }
+    },
+    {
+      "name": "another-game-version",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-2\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"se5QWZPHhub0AAgs610dixxMPwRVtfyfOpEDjBmiHIevlFTzcOVq8sicBCDYVOP1vplXCFbD0zD95CYNt6o4Ag==\"}",
+      "expected": {
+        "status": 403,
+        "body": {
+          "error": {
+            "code": "outcome_game"
+          }
+        }
+      }
+    },
+    {
+      "name": "one-byte-over-the-limit",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":\"seat-a\",\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"xgpCDL+mpVQv0+r7rK+hPCOE6seRwdtRfV0UcFBnxh6z25Ff2IQ4/AuD58aOPLmrQbzqWg9yLI5+S9beCugMBQ==\"}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ",
+      "expected": {
+        "status": 413,
+        "body": {
+          "error": {
+            "code": "too_large"
+          }
+        }
+      }
+    },
+    {
+      "name": "a-win-without-its-seat",
+      "body": "{\"version\":\"agentnexus-outcome-v1\",\"key_id\":\"5e4d3c2b-1a09-4f8e-9d7c-6b5a4e3d2c1b\",\"match_id\":\"5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a\",\"provider_id\":\"example-provider\",\"game_version\":\"connect-four-1\",\"result\":\"win\",\"reason\":\"rules\",\"winner_seat\":null,\"solo\":false,\"final_state_version\":7,\"replay_digest\":\"ca361c17012ad9cb496cc4946109208f749e6687f5c480ee254b3ea5c5a1f846\",\"replay_reference\":\"replay-000001\",\"reported_at\":\"2026-09-26T08:10:00Z\",\"signature\":\"azUVIS0dO0/aR1QFAitipSd/8LYUvfuoMb+fyvm7FymeYr4ldECSPzdr1mTs0zxNuyv4bS0wyI896eogSjDdBQ==\"}",
+      "expected": {
+        "status": 400,
+        "body": {
+          "error": {
+            "code": "malformed_body"
+          }
+        }
+      }
+    }
+  ]
+}
