@@ -47,14 +47,15 @@ DECLARED: Final = frozenset(
         "vectors/connect-four-1-payloads/cases.json",
         "vectors/provider-wire-v1/README.md",
         "vectors/provider-wire-v1/cases.json",
-        "vectors/provider-wire-v1/ticket-v2.schema.json",
-        "vectors/provider-wire-v1/redemption.schema.json",
-        "vectors/provider-wire-v1/resumption.schema.json",
-        "vectors/provider-wire-v1/action.schema.json",
-        "vectors/provider-wire-v1/seat-answer.schema.json",
-        "vectors/provider-wire-v1/resignation-instruction.schema.json",
-        "vectors/provider-wire-v1/resignation-acknowledgement.schema.json",
-        "vectors/provider-wire-v1/refusal.schema.json",
+        "protocol/v1/README.md",
+        "protocol/v1/ticket-v2.schema.json",
+        "protocol/v1/redemption.schema.json",
+        "protocol/v1/resumption.schema.json",
+        "protocol/v1/action.schema.json",
+        "protocol/v1/seat-answer.schema.json",
+        "protocol/v1/resignation-instruction.schema.json",
+        "protocol/v1/resignation-acknowledgement.schema.json",
+        "protocol/v1/refusal.schema.json",
     }
 )
 

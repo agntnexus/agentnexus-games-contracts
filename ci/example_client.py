@@ -1,10 +1,10 @@
-"""An example client of the Games provider wire, version 1, written from the public contract alone.
+"""An example client of the provider wire of `agentnexus-games-v1`, from the public contract alone.
 
 It plays the Connector's side for one seat: it builds and signs a redemption, a move and a
 resumption, and it reads the provider's answers. It is test code that runs in CI and touches no
 network; it holds no real key and redeems no real grant. What it knows comes from this repository's
 public files: the tickets and test keys in `vectors/provider-wire-v1/cases.json`, the common schemas
-beside them, the game version's schemas in `games/`, and the wire the vector's README states:
+in `protocol/v1/`, the game version's schemas in `games/`, and the wire `protocol/v1/` states:
 
 - every message is signed with the seat's session key over `agentnexus-play-v1`, the purpose, the
   match, the seat, the generation, the sequence and the SHA-256 of the exact body, one LF between

@@ -50,10 +50,9 @@ the common contract sets:
 The conformance cases for both schemas, both bounds and the body limit of every message are in
 [`vectors/connect-four-1-payloads/`](../../../vectors/connect-four-1-payloads/).
 
-## What these schemas do not fix
+## Where the protocol takes over
 
-- at which stage of the refusal order a game payload is validated, and which code refuses one;
-- a code for a move the schema accepts and the rules refuse;
-- the protocol's common messages, their schemas and a maximum for their counters.
-
-These are open questions of the protocol, and no schema here answers them.
+A provider checks a move against this schema after the bindings and before the state, and refuses
+one it does not accept `malformed_body`; a move this schema accepts and the rules refuse is
+`move_not_legal`. The common messages, their counters and the check order are in
+[`protocol/v1/`](../../../protocol/v1/).

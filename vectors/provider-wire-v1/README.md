@@ -4,19 +4,14 @@
 valid nowhere.** A deployment that accepts one of these keys is misconfigured. No contract version is
 published with this directory.
 
-It follows the umbrella decision `D-114` (the provider wire, W-1 to W-8), with `D-100`'s ticket times
-and keys, `D-112`'s answers and `D-118`'s body limits and Connect Four payloads.
+It follows the umbrella decisions `D-114` (the provider wire, W-1 to W-8) and `D-123`, with
+`D-100`'s ticket times and keys, `D-112`'s answers and `D-118`'s body limits and Connect Four
+payloads.
 
 ## Where the schemas are
 
-The eight common schemas of W-7 are kept here, beside the cases that use them, exactly as `D-114`
-accepted them: [`ticket-v2`](ticket-v2.schema.json), [`redemption`](redemption.schema.json),
-[`resumption`](resumption.schema.json), [`action`](action.schema.json),
-[`seat-answer`](seat-answer.schema.json), [`resignation-instruction`](resignation-instruction.schema.json),
-[`resignation-acknowledgement`](resignation-acknowledgement.schema.json) and
-[`refusal`](refusal.schema.json). **Where the contract's common schemas finally live, and under which
-contract version they are published, is not decided, and this directory decides neither.** The
-redemption schema names the ticket schema as `ticket-v2.schema.json`, as `D-114` wrote it.
+The common schemas are in [`protocol/v1/`](../../protocol/v1/), where `agentnexus-games-v1` is kept
+canonically, together with the wire this vector exercises.
 
 ## The wire
 
@@ -55,6 +50,7 @@ answer the provider gives:
 | `another-session-key` | `unauthenticated`: the session key is not the one the ticket's fingerprint binds |
 | `outside-the-window` | `ticket_clock`, one second past the skew |
 | `rebinding` | A higher generation rebinds the seat; the earlier key is `unauthenticated`; a ticket of the same generation is `generation_stale` |
+| `d123-wire-rules` | An identical redemption retry answered with the binding; `move_not_legal` consuming its sequence; a move retried with its key getting its stored answer; a move `D-118`'s schema refuses (`malformed_body`); a counter over its maximum (`malformed_body`); the spent ticket in other bytes (`ticket_spent`) |
 
 Where a request passes every check, the step gives the answer the provider's game returns
 (`provider_answer`): a seat answer whose observation `D-118`'s Connect Four schema accepts. The move
@@ -69,16 +65,13 @@ reference check that has to give every step its published answer.
 
 ## What it does not fix
 
-`D-114` leaves these open, and no case here answers them; the reference check refuses to choose:
+These stay open, and no case here answers them; the reference check refuses to choose:
 
-- which of `ticket_spent`, `generation_stale` and the stored answer a repeated redemption of a bound
-  seat gets, and the order of the state stage's checks when more than one fails;
 - the code for a redemption whose body names another generation than its ticket, or a message whose
   generation is not the binding's;
-- the answer to another method on a served path, and to an idempotency key sent again with the same
-  move;
-- at which stage a game payload is checked against its schema and bound, which code refuses it, a
-  code for a move the rules refuse, and a maximum for the counters.
+- the answer to another method on a served path;
+- a move retried with its key and move but another expected state version;
+- how a payload's bytes are found inside a body to measure it against its bound.
 
 The resignation instruction, the spectator path and the outcome interface are not run here, and
 neither are the manifest and the spectator capability, whose formats are not decided.

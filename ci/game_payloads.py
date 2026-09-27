@@ -18,9 +18,8 @@ decisions:
 Instances are validated by `json_schema.py`. A game schema that uses a keyword outside `KEYWORDS`
 here is refused, so no instance passes because a keyword was ignored.
 
-What it does not check, because `D-118` leaves it open: at which stage of the refusal order a game
-payload is validated and which code refuses it, a code for a move the rules refuse, and a maximum
-for the protocol's counters.
+It runs no request. Where a game payload is checked in the refusal order, and with which code, is
+`D-123`'s, and `ci/provider_wire.py` runs it.
 """
 
 from __future__ import annotations

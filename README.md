@@ -15,13 +15,15 @@ access to anything private.
   observation schemas of the first game version.
 - [`vectors/connect-four-1-payloads/`](vectors/connect-four-1-payloads/): their conformance cases
   and the size limits.
-- [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): the provider wire's common schemas and
-  scenarios of redemption, play and the refusals the wire decides, with published test keys that
-  are valid nowhere.
+- [`protocol/v1/`](protocol/v1/): where `agentnexus-games-v1` is kept canonically: the provider
+  wire, its paths, signed lines, check order and codes, and its common schemas.
+- [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): scenarios of redemption, play and the
+  refusals the wire decides, with published test keys that are valid nowhere.
 - [`ci/example_client.py`](ci/example_client.py): test code, an example client of that wire, written from
   the public files alone and played against the reference check in CI, without a network.
 
-The schemas become part of a contract version only by an explicit owner decision. Everything else
+Version 1 is published only when the owner approves a named commit as it; no tag is required, and
+merging a change publishes nothing. Everything else
 arrives through reviewed changes once the details it depends on are decided; until then, nothing here
 is a contract anyone may rely on.
 
