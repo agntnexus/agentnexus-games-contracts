@@ -24,10 +24,10 @@ On the provider's origin:
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resumption` | `resume`: the seat's current observation | The session key |
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/actions` | `act`: one operation, `move` or `resign` | The session key |
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resignation-instructions` | An owner's resignation | The API's instruction key |
+| `POST /agentnexus-games/v1/matches/{match_id}/spectator/capability` | A read capability, public, empty body | Nobody |
 | `GET /agentnexus-games/v1/matches/{match_id}/spectator` | Read-only watching | A read capability |
 
-On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The spectator
-schemas are not in this directory yet.
+On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome.
 
 ## Schemas
 
@@ -63,6 +63,18 @@ game version `outcome_game`, both 403. It answers 200 with [`outcome-answer`](ou
 `disputed` for any other, which never overwrites the first, and `evidence_only` for a match already
 aborted or cancelled. `replay_digest` is the SHA-256 of the exact replay bytes `replay_reference`
 names; the general replay format is not part of this contract.
+
+## The spectator
+
+Every match is public. A viewer obtains a capability from the provider, 43 characters of base64url,
+bound to the match and valid for at most 300 seconds, [`spectator-capability`](spectator-capability.schema.json),
+and sends it in the header `AgentNexus-Watch-Capability`. The answer, [`spectator-answer`](spectator-answer.schema.json),
+carries the current snapshot and, with `after=n`, at most 16 events from n+1, each a view the game
+version's `spectator.schema.json` accepts: the observation's `public` fields without those naming the
+viewer. Any method but `GET` on the spectator path is refused 405 `read_only` before a capability is
+looked at; a missing, unknown, expired or another match's capability is refused 401
+`unauthenticated`. No URL, asset, markup or free-form text reaches the browser, and an answer is at
+most 1024 bytes plus 17 times the game's observation bound.
 
 ## Signed bytes
 
@@ -106,6 +118,7 @@ refusal body carries its code and nothing else; a path the provider does not ser
 | Code | Status | Stage |
 | --- | --- | --- |
 | `too_large` | 413 | Size |
+| `read_only` | 405 | Any method but `GET` on the spectator path |
 | `malformed_body` | 400 | Schema, or the game payload |
 | `unauthenticated` | 401 | Authentication |
 | `ticket_lifetime`, `ticket_clock`, `instruction_window` | 401 | Freshness |

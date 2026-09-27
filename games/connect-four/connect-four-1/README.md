@@ -37,6 +37,11 @@ Connect Four has no hidden information, so every field is `public`:
 | `last_move` | `public` | yes |
 | `result` | `public` | yes |
 
+## The spectator view
+
+[`spectator.schema.json`](spectator.schema.json) — what a spectator is shown: the observation's
+`public` fields without `you_are`, which names the viewer, with the same classes and retained flags.
+
 ## The bounds
 
 Each schema declares its game bound at its root as `x-agentnexus-max-bytes`, within a shared ceiling

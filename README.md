@@ -20,6 +20,8 @@ access to anything private.
 - [`vectors/manifest-v1/`](vectors/manifest-v1/): provider manifests the check accepts and refuses.
 - [`vectors/outcome-v1/`](vectors/outcome-v1/): signed outcomes, a test replay record, and the
   API's answers to them.
+- [`vectors/spectator-v1/`](vectors/spectator-v1/): the read-only spectator contract: capabilities,
+  snapshots and events, refused writes, and views the browser must never render.
 - [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): scenarios of redemption, play and the
   refusals the wire decides, with published test keys that are valid nowhere.
 - [`ci/example_client.py`](ci/example_client.py): test code, an example client of that wire, written from

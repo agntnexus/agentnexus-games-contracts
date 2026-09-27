@@ -96,6 +96,7 @@ def test_the_schemas_are_in_the_game_versions_own_directory() -> None:
     assert sorted(path.name for path in GAME.glob("*.schema.json")) == [
         "move.schema.json",
         "observation.schema.json",
+        "spectator.schema.json",
     ]
     assert vector()["game_version"] == GAME_VERSION
     assert vector()["schemas"] == {

@@ -1,0 +1,3952 @@
+{
+  "about": "The read-only spectator contract of agentnexus-games-v1 under D-123 and D-124: a public match with its events, a scenario of viewer requests with the provider's answers, and views the browser must never render. Test material only: every capability here is test bytes, valid nowhere. No contract version is published with this file.",
+  "decisions": [
+    "D-123",
+    "D-124"
+  ],
+  "test_capabilities": [
+    {
+      "capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo",
+      "is_sha256_of": "agentnexus-watch-v1 published test capability 1, valid nowhere"
+    },
+    {
+      "capability": "qZzBC8fmgpHv9F7YYsyXzMd7VxWz1djPq5Mdqu2dx2o",
+      "is_sha256_of": "agentnexus-watch-v1 published test capability 2, valid nowhere"
+    },
+    {
+      "capability": "VzsMz9OWrvVMOpIQ36fvU14T0Gi70sbZxSEeLa9TmAU",
+      "is_sha256_of": "agentnexus-watch-v1 published test capability 3, never issued, valid nowhere"
+    }
+  ],
+  "matches": {
+    "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a": {
+      "game_version": "connect-four-1",
+      "status": "active",
+      "snapshot": {
+        "board": [
+          [
+            "first",
+            "second",
+            "first",
+            "second",
+            "first",
+            "second",
+            "first"
+          ],
+          [
+            "second",
+            "first",
+            "second",
+            "first",
+            "second",
+            "first",
+            "second"
+          ],
+          [
+            "first",
+            "second",
+            "first",
+            "second",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 18,
+        "last_move": {
+          "seat": "second",
+          "column": 3,
+          "row": 2
+        },
+        "result": null
+      },
+      "events": [
+        {
+          "event_seq": 1,
+          "state_version": 1,
+          "view": {
+            "board": [
+              [
+                "first",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 1,
+            "last_move": {
+              "seat": "first",
+              "column": 0,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 2,
+          "state_version": 2,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 2,
+            "last_move": {
+              "seat": "second",
+              "column": 1,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 3,
+          "state_version": 3,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 3,
+            "last_move": {
+              "seat": "first",
+              "column": 2,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 4,
+          "state_version": 4,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 4,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 5,
+          "state_version": 5,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 5,
+            "last_move": {
+              "seat": "first",
+              "column": 4,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 6,
+          "state_version": 6,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 6,
+            "last_move": {
+              "seat": "second",
+              "column": 5,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 7,
+          "state_version": 7,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 7,
+            "last_move": {
+              "seat": "first",
+              "column": 6,
+              "row": 0
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 8,
+          "state_version": 8,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 8,
+            "last_move": {
+              "seat": "second",
+              "column": 0,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 9,
+          "state_version": 9,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 9,
+            "last_move": {
+              "seat": "first",
+              "column": 1,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 10,
+          "state_version": 10,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 10,
+            "last_move": {
+              "seat": "second",
+              "column": 2,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 11,
+          "state_version": 11,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 11,
+            "last_move": {
+              "seat": "first",
+              "column": 3,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 12,
+          "state_version": 12,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 12,
+            "last_move": {
+              "seat": "second",
+              "column": 4,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 13,
+          "state_version": 13,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 13,
+            "last_move": {
+              "seat": "first",
+              "column": 5,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 14,
+          "state_version": 14,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 14,
+            "last_move": {
+              "seat": "second",
+              "column": 6,
+              "row": 1
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 15,
+          "state_version": 15,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 15,
+            "last_move": {
+              "seat": "first",
+              "column": 0,
+              "row": 2
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 16,
+          "state_version": 16,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 16,
+            "last_move": {
+              "seat": "second",
+              "column": 1,
+              "row": 2
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 17,
+          "state_version": 17,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "second",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 17,
+            "last_move": {
+              "seat": "first",
+              "column": 2,
+              "row": 2
+            },
+            "result": null
+          }
+        },
+        {
+          "event_seq": 18,
+          "state_version": 18,
+          "view": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 18,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 2
+            },
+            "result": null
+          }
+        }
+      ]
+    },
+    "8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19": {
+      "game_version": "connect-four-1",
+      "status": "active",
+      "snapshot": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      },
+      "events": []
+    }
+  },
+  "steps": [
+    {
+      "name": "issue-a-capability",
+      "now": "2026-09-26T09:00:00Z",
+      "request": {
+        "method": "POST",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator/capability",
+        "headers": {},
+        "body": ""
+      },
+      "issues": {
+        "capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo",
+        "expires_at": "2026-09-26T09:05:00Z"
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo",
+          "expires_at": "2026-09-26T09:05:00Z"
+        }
+      }
+    },
+    {
+      "name": "the-snapshot",
+      "now": "2026-09-26T09:00:10Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "game_version": "connect-four-1",
+          "status": "active",
+          "event_seq": 18,
+          "snapshot": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 18,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 2
+            },
+            "result": null
+          },
+          "events": []
+        }
+      }
+    },
+    {
+      "name": "events-after-0",
+      "now": "2026-09-26T09:00:11Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator?after=0",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": ""
+      },
+      "because": "at most 16 events: 1 to 16",
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "game_version": "connect-four-1",
+          "status": "active",
+          "event_seq": 18,
+          "snapshot": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 18,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 2
+            },
+            "result": null
+          },
+          "events": [
+            {
+              "event_seq": 1,
+              "state_version": 1,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 1,
+                "last_move": {
+                  "seat": "first",
+                  "column": 0,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 2,
+              "state_version": 2,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 2,
+                "last_move": {
+                  "seat": "second",
+                  "column": 1,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 3,
+              "state_version": 3,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 3,
+                "last_move": {
+                  "seat": "first",
+                  "column": 2,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 4,
+              "state_version": 4,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 4,
+                "last_move": {
+                  "seat": "second",
+                  "column": 3,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 5,
+              "state_version": 5,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 5,
+                "last_move": {
+                  "seat": "first",
+                  "column": 4,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 6,
+              "state_version": 6,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 6,
+                "last_move": {
+                  "seat": "second",
+                  "column": 5,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 7,
+              "state_version": 7,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 7,
+                "last_move": {
+                  "seat": "first",
+                  "column": 6,
+                  "row": 0
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 8,
+              "state_version": 8,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 8,
+                "last_move": {
+                  "seat": "second",
+                  "column": 0,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 9,
+              "state_version": 9,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 9,
+                "last_move": {
+                  "seat": "first",
+                  "column": 1,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 10,
+              "state_version": 10,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 10,
+                "last_move": {
+                  "seat": "second",
+                  "column": 2,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 11,
+              "state_version": 11,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 11,
+                "last_move": {
+                  "seat": "first",
+                  "column": 3,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 12,
+              "state_version": 12,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 12,
+                "last_move": {
+                  "seat": "second",
+                  "column": 4,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 13,
+              "state_version": 13,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 13,
+                "last_move": {
+                  "seat": "first",
+                  "column": 5,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 14,
+              "state_version": 14,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second"
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 14,
+                "last_move": {
+                  "seat": "second",
+                  "column": 6,
+                  "row": 1
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 15,
+              "state_version": 15,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second"
+                  ],
+                  [
+                    "first",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 15,
+                "last_move": {
+                  "seat": "first",
+                  "column": 0,
+                  "row": 2
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 16,
+              "state_version": 16,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second"
+                  ],
+                  [
+                    "first",
+                    "second",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 16,
+                "last_move": {
+                  "seat": "second",
+                  "column": 1,
+                  "row": 2
+                },
+                "result": null
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "events-after-16",
+      "now": "2026-09-26T09:00:12Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator?after=16",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "game_version": "connect-four-1",
+          "status": "active",
+          "event_seq": 18,
+          "snapshot": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 18,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 2
+            },
+            "result": null
+          },
+          "events": [
+            {
+              "event_seq": 17,
+              "state_version": 17,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second"
+                  ],
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "second",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 17,
+                "last_move": {
+                  "seat": "first",
+                  "column": 2,
+                  "row": 2
+                },
+                "result": null
+              }
+            },
+            {
+              "event_seq": 18,
+              "state_version": 18,
+              "view": {
+                "board": [
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first"
+                  ],
+                  [
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    "first",
+                    "second"
+                  ],
+                  [
+                    "first",
+                    "second",
+                    "first",
+                    "second",
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ]
+                ],
+                "to_move": "first",
+                "legal_columns": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "move_count": 18,
+                "last_move": {
+                  "seat": "second",
+                  "column": 3,
+                  "row": 2
+                },
+                "result": null
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "events-after-18",
+      "now": "2026-09-26T09:00:13Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator?after=18",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a",
+          "game_version": "connect-four-1",
+          "status": "active",
+          "event_seq": 18,
+          "snapshot": {
+            "board": [
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first"
+              ],
+              [
+                "second",
+                "first",
+                "second",
+                "first",
+                "second",
+                "first",
+                "second"
+              ],
+              [
+                "first",
+                "second",
+                "first",
+                "second",
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 18,
+            "last_move": {
+              "seat": "second",
+              "column": 3,
+              "row": 2
+            },
+            "result": null
+          },
+          "events": []
+        }
+      }
+    },
+    {
+      "name": "a-write-with-a-capability",
+      "now": "2026-09-26T09:00:14Z",
+      "request": {
+        "method": "POST",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": "{\"move\":{\"column\":3}}"
+      },
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        }
+      }
+    },
+    {
+      "name": "a-write-without-one",
+      "now": "2026-09-26T09:00:15Z",
+      "request": {
+        "method": "DELETE",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {},
+        "body": ""
+      },
+      "because": "refused before any capability is looked at",
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        }
+      }
+    },
+    {
+      "name": "no-capability",
+      "now": "2026-09-26T09:00:16Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {},
+        "body": ""
+      },
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    },
+    {
+      "name": "an-unknown-capability",
+      "now": "2026-09-26T09:00:17Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "VzsMz9OWrvVMOpIQ36fvU14T0Gi70sbZxSEeLa9TmAU"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    },
+    {
+      "name": "issue-for-another-match",
+      "now": "2026-09-26T09:00:20Z",
+      "request": {
+        "method": "POST",
+        "path": "/agentnexus-games/v1/matches/8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19/spectator/capability",
+        "headers": {},
+        "body": ""
+      },
+      "issues": {
+        "capability": "qZzBC8fmgpHv9F7YYsyXzMd7VxWz1djPq5Mdqu2dx2o",
+        "expires_at": "2026-09-26T09:05:20Z"
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "capability": "qZzBC8fmgpHv9F7YYsyXzMd7VxWz1djPq5Mdqu2dx2o",
+          "expires_at": "2026-09-26T09:05:20Z"
+        }
+      }
+    },
+    {
+      "name": "another-matchs-capability",
+      "now": "2026-09-26T09:00:21Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "qZzBC8fmgpHv9F7YYsyXzMd7VxWz1djPq5Mdqu2dx2o"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    },
+    {
+      "name": "an-expired-capability",
+      "now": "2026-09-26T09:05:01Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "oCGcpWwphTzZzmHzzYjN-tGisnlCtLJlaJW6Yp0OHZo"
+        },
+        "body": ""
+      },
+      "because": "one second after expires_at",
+      "expected": {
+        "status": 401,
+        "body": {
+          "error": {
+            "code": "unauthenticated"
+          }
+        }
+      }
+    }
+  ],
+  "refused_views": [
+    {
+      "name": "script-in-a-cell",
+      "view": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            "<script>alert(1)</script>",
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "a-javascript-url",
+      "view": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null,
+        "href": "javascript:alert(1)"
+      }
+    },
+    {
+      "name": "a-data-url",
+      "view": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null,
+        "image": "data:image/png;base64,iVBORw0KGgo="
+      }
+    },
+    {
+      "name": "markup-for-the-seat",
+      "view": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "<b>first</b>",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null
+      }
+    },
+    {
+      "name": "an-unknown-member",
+      "view": {
+        "board": [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ],
+        "to_move": "first",
+        "legal_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "move_count": 0,
+        "last_move": null,
+        "result": null,
+        "note": "free text"
+      }
+    }
+  ]
+}

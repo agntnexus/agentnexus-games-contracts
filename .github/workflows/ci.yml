@@ -87,6 +87,11 @@ jobs:
         # every step: four statuses and five refusals. Test keys only, valid nowhere.
         run: python -m pytest ci/test_outcome.py -q
 
+      - name: The spectator contract gets its published answers
+        # The capability, the snapshot and at most 16 events, a write refused read_only, every
+        # capability failure unauthenticated, and views the browser must never render refused.
+        run: python -m pytest ci/test_spectator.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,
