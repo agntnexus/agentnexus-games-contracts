@@ -46,10 +46,7 @@ check that runs every case in CI.
 
 ## What it does not fix
 
-- at which stage of the refusal order a game payload is checked against its schema and its bound,
-  how a verifier finds the payload's bytes inside a body, and which code refuses a payload that is
-  invalid or over its bound;
-- a code for a move the schema accepts and the rules refuse;
-- the common messages' schemas and a maximum for their counters.
-
-Those are open. The payload cases give a verdict — `invalid` or `over_bound` — and name no code.
+How a verifier finds a payload's bytes inside a body, to measure it against its bound, is not
+fixed. The payload cases give a verdict — `invalid` or `over_bound` — and name no code; where a
+payload is checked in the refusal order, and with which code, is in
+[`protocol/v1/`](../../protocol/v1/).

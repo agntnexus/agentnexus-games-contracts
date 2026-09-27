@@ -65,9 +65,10 @@ jobs:
         run: python -m pytest ci/test_game_payloads.py -q
 
       - name: The provider wire vector gets its published answers
-        # The eight common schemas are D-114's; every key, ticket and message signature is
-        # reproducible from its published test seed; every step of every scenario gets its
-        # published answer; what D-114 leaves open stays open. Test keys only, valid nowhere.
+        # The eight common schemas in protocol/v1 are D-114's with D-123's counter maximum; every
+        # key, ticket and message signature is reproducible from its published test seed; every
+        # step of every scenario gets its published answer; what stays open stays open. Test keys
+        # only, valid nowhere.
         run: python -m pytest ci/test_provider_wire.py -q
 
       - name: An independent example client plays the wire

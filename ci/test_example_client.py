@@ -22,7 +22,8 @@ from example_client import Client
 from provider_wire import Provider
 
 ROOT = Path(__file__).resolve().parents[1]
-WIRE = ROOT / "vectors" / "provider-wire-v1"
+PROTOCOL = ROOT / "protocol" / "v1"
+VECTORS = ROOT / "vectors" / "provider-wire-v1"
 PAYLOADS = ROOT / "vectors" / "connect-four-1-payloads" / "cases.json"
 GAME = ROOT / "games" / "connect-four" / "connect-four-1"
 OTHER_MATCH = "7e6d5c4b-3a29-4180-9f7e-6d5c4b3a2918"
@@ -33,7 +34,7 @@ def load(path: Path) -> dict[str, Any]:
 
 
 def vector() -> dict[str, Any]:
-    return load(WIRE / "cases.json")
+    return load(VECTORS / "cases.json")
 
 
 def ticket(name: str) -> dict[str, Any]:
@@ -66,7 +67,7 @@ def provider() -> Provider:
         for e in payloads["message_limits"]
     }
     keys = {k["key_id"]: k["public_key"] for k in doc["grant_verification_keys"]}
-    return Provider(doc["provider_id"], keys, limits, WIRE)
+    return Provider(doc["provider_id"], keys, limits, PROTOCOL)
 
 
 def send(
@@ -79,7 +80,7 @@ def send(
 
 def client(match_id: str | None = None) -> Client:
     first = ticket("gen-1")
-    return Client(match_id or first["match_id"], first["seat"], WIRE, GAME)
+    return Client(match_id or first["match_id"], first["seat"], PROTOCOL, GAME)
 
 
 def test_the_client_imports_no_reference_check() -> None:
