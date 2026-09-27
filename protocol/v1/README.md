@@ -26,8 +26,8 @@ On the provider's origin:
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resignation-instructions` | An owner's resignation | The API's instruction key |
 | `GET /agentnexus-games/v1/matches/{match_id}/spectator` | Read-only watching | A read capability |
 
-On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The outcome
-and spectator schemas are not in this directory yet.
+On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome. The spectator
+schemas are not in this directory yet.
 
 ## Schemas
 
@@ -52,6 +52,18 @@ one of its versions is implemented here, every game version has a directory in
 [`games/`](../../games/), its operations are exactly `move` and `resign`, and every origin is
 `https`.
 
+## The outcome
+
+A provider sends one outcome per match to the API, [`outcome.schema.json`](outcome.schema.json), at
+most 2048 bytes, signed with an outcome key of its manifest. It is public and every member is
+retained. The API checks size (`too_large`), schema (`malformed_body`), the signature
+(`unauthenticated`), and the bindings: another provider's match is `outcome_provider` and another
+game version `outcome_game`, both 403. It answers 200 with [`outcome-answer`](outcome-answer.schema.json):
+`recorded` for the first outcome, `already_recorded` only for byte-identical signed lines,
+`disputed` for any other, which never overwrites the first, and `evidence_only` for a match already
+aborted or cancelled. `replay_digest` is the SHA-256 of the exact replay bytes `replay_reference`
+names; the general replay format is not part of this contract.
+
 ## Signed bytes
 
 Lines joined by one LF with no trailing LF, UTF-8, signed with Ed25519; a signature is 88 characters
@@ -65,6 +77,10 @@ not rebuild.
   the sequence and the SHA-256 of the exact body bytes, in lowercase hexadecimal. Its signature
   travels in the header `AgentNexus-Play-Signature`. A redemption's body also carries the session
   public key, whose SHA-256 is the ticket's fingerprint.
+- **The outcome:** `agentnexus-outcome-v1`, `key_id`, `match_id`, `provider_id`, `game_version`,
+  `result`, `reason`, `winner_seat` (the empty line when `null`), `solo` (`true` or `false`),
+  `final_state_version`, `replay_digest`, `replay_reference`, `reported_at`. Its signature is the
+  member `signature`.
 
 ## The check order
 

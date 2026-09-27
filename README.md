@@ -18,6 +18,8 @@ access to anything private.
 - [`protocol/v1/`](protocol/v1/): where `agentnexus-games-v1` is kept canonically: the provider
   wire, its paths, signed lines, check order and codes, and its common schemas.
 - [`vectors/manifest-v1/`](vectors/manifest-v1/): provider manifests the check accepts and refuses.
+- [`vectors/outcome-v1/`](vectors/outcome-v1/): signed outcomes, a test replay record, and the
+  API's answers to them.
 - [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): scenarios of redemption, play and the
   refusals the wire decides, with published test keys that are valid nowhere.
 - [`ci/example_client.py`](ci/example_client.py): test code, an example client of that wire, written from

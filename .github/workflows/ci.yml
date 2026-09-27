@@ -82,6 +82,11 @@ jobs:
         # its form and compatibility. Test keys only; the numbers are illustrative.
         run: python -m pytest ci/test_manifest.py -q
 
+      - name: The signed outcome gets its published answers
+        # The signed bytes, the test replay record and its digest, and the API's answer to
+        # every step: four statuses and five refusals. Test keys only, valid nowhere.
+        run: python -m pytest ci/test_outcome.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,

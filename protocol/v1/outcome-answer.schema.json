@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Outcome answer",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "match_id",
+    "status"
+  ],
+  "properties": {
+    "match_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "status": {
+      "enum": [
+        "already_recorded",
+        "disputed",
+        "evidence_only",
+        "recorded"
+      ]
+    }
+  }
+}
