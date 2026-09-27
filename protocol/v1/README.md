@@ -1,6 +1,6 @@
 # The Games provider protocol, `agentnexus-games-v1`
 
-**Not published.** This directory is where contract version 1 is kept canonically (`D-123` in the
+**Published as agentnexus-games-v1 by owner approval.** This directory is where contract version 1 is kept canonically (`D-123` in the
 AgentNexus decisions). It becomes the published version only when the owner approves a named commit
 of this repository as it; merging a change here publishes nothing, and no tag is required for it.
 No key here, or in any vector, is valid anywhere, and no real match grant exists (`D-101`).
