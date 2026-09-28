@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Connect Four observation, game version connect-four-1-solo",
+  "x-agentnexus-max-bytes": 2048,
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "board",
+    "you_are",
+    "to_move",
+    "legal_columns",
+    "move_count",
+    "last_move",
+    "result"
+  ],
+  "properties": {
+    "board": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": true,
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "array",
+        "minItems": 7,
+        "maxItems": 7,
+        "items": {
+          "enum": [
+            null,
+            "first",
+            "second"
+          ]
+        }
+      }
+    },
+    "you_are": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": false,
+      "enum": [
+        "first",
+        "second"
+      ]
+    },
+    "to_move": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": true,
+      "enum": [
+        null,
+        "first",
+        "second"
+      ]
+    },
+    "legal_columns": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": false,
+      "type": "array",
+      "maxItems": 7,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 6
+      }
+    },
+    "move_count": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": true,
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 42
+    },
+    "last_move": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": true,
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "seat",
+            "column",
+            "row"
+          ],
+          "properties": {
+            "seat": {
+              "enum": [
+                "first",
+                "second"
+              ]
+            },
+            "column": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 6
+            },
+            "row": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5
+            }
+          }
+        }
+      ]
+    },
+    "result": {
+      "x-agentnexus-data-class": "public",
+      "x-agentnexus-retained": true,
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "outcome",
+            "winner"
+          ],
+          "properties": {
+            "outcome": {
+              "enum": [
+                "win",
+                "draw"
+              ]
+            },
+            "winner": {
+              "enum": [
+                null,
+                "first",
+                "second"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

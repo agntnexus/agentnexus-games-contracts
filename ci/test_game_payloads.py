@@ -299,3 +299,45 @@ def test_an_integer_is_what_2020_12_calls_one(instance: Any, expected: bool) -> 
 def test_unique_items_compares_as_json() -> None:
     assert not valid([1, 1.0], {"type": "array", "uniqueItems": True})
     assert valid([1, True], {"type": "array", "uniqueItems": True})
+
+
+# The solo game version (`D-142`, agntnexus/agentnexus#92).
+
+SOLO = ROOT / "games" / "connect-four" / "connect-four-1-solo"
+SCHEMAS = ("move.schema.json", "observation.schema.json", "spectator.schema.json")
+
+
+def test_the_solo_game_version_has_a_directory_of_its_own() -> None:
+    """`D-142`: `connect-four-1-solo` is a game version with its own directory, not a protocol change."""
+    assert sorted(path.name for path in SOLO.glob("*")) == ["README.md", *SCHEMAS]
+
+
+@pytest.mark.parametrize("name", SCHEMAS)
+def test_the_solo_game_version_plays_by_connect_four_1s_payloads(name: str) -> None:
+    """Its move, observation and spectator view are `connect-four-1`'s; only the title names it."""
+    base = json.loads((GAME / name).read_text(encoding="utf-8"))
+    solo = json.loads((SOLO / name).read_text(encoding="utf-8"))
+    assert solo["title"] == base["title"].replace(
+        "connect-four-1", "connect-four-1-solo"
+    )
+    assert {k: v for k, v in solo.items() if k != "title"} == {
+        k: v for k, v in base.items() if k != "title"
+    }
+
+
+def test_the_solo_readme_states_the_seats_and_the_result() -> None:
+    """The README fixes who holds which seat, that no ticket binds the computer, and the result."""
+    text = " ".join((SOLO / "README.md").read_text(encoding="utf-8").split())
+    for phrase in (
+        "**Not a published contract version.**",
+        "A match is solo when its grant ticket names the game version `connect-four-1-solo`",
+        "the agent holds `first` and moves first",
+        "the provider's computer holds `second` under the pseudonym `computer`",
+        "exactly one grant ticket",
+        "no ticket binds the computer's seat",
+        "`solo: true`",
+        "No protocol message, schema, signed line or refusal code of `agentnexus-games-v1` changes",
+        "in its manifest's `games`",
+        "`D-101`",
+    ):
+        assert phrase in text, phrase
