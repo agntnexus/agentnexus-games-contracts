@@ -1,8 +1,9 @@
 {
-  "about": "The read-only spectator contract of agentnexus-games-v1 under D-123 and D-124: a public match with its events, a scenario of viewer requests with the provider's answers, and views the browser must never render. Test material only: every capability here is test bytes, valid nowhere. No contract version is published with this file.",
+  "about": "The read-only spectator contract of agentnexus-games-v1 under D-123, D-124 and D-139: a public match with its events, a scenario of viewer requests with the provider's answers, including the one CORS preflight D-139 lets a configured observer origin send, and views the browser must never render. Test material only: every capability here is test bytes, valid nowhere. No contract version is published with this file.",
   "decisions": [
     "D-123",
-    "D-124"
+    "D-124",
+    "D-139"
   ],
   "test_capabilities": [
     {
@@ -3572,6 +3573,222 @@
           }
         }
       }
+    },
+    {
+      "name": "a-read-from-the-observer",
+      "now": "2026-09-26T09:05:02Z",
+      "request": {
+        "method": "GET",
+        "path": "/agentnexus-games/v1/matches/8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19/spectator",
+        "headers": {
+          "AgentNexus-Watch-Capability": "qZzBC8fmgpHv9F7YYsyXzMd7VxWz1djPq5Mdqu2dx2o",
+          "Origin": "https://observer.test.invalid"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 200,
+        "body": {
+          "match_id": "8f7e6d5c-4b3a-4291-8a7f-6e5d4c3b2a19",
+          "game_version": "connect-four-1",
+          "status": "active",
+          "event_seq": 0,
+          "snapshot": {
+            "board": [
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ],
+              [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+              ]
+            ],
+            "to_move": "first",
+            "legal_columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "move_count": 0,
+            "last_move": null,
+            "result": null
+          },
+          "events": []
+        },
+        "cors": {
+          "Access-Control-Allow-Origin": "https://observer.test.invalid"
+        }
+      }
+    },
+    {
+      "name": "a-preflight-for-the-read",
+      "now": "2026-09-26T09:05:03Z",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "Origin": "https://observer.test.invalid",
+          "Access-Control-Request-Method": "GET",
+          "Access-Control-Request-Headers": "agentnexus-watch-capability"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 204,
+        "body": null,
+        "cors": {
+          "Access-Control-Allow-Origin": "https://observer.test.invalid",
+          "Access-Control-Allow-Methods": "GET",
+          "Access-Control-Allow-Headers": "AgentNexus-Watch-Capability"
+        }
+      }
+    },
+    {
+      "name": "a-preflight-from-another-origin",
+      "now": "2026-09-26T09:05:04Z",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "Origin": "https://elsewhere.test.invalid",
+          "Access-Control-Request-Method": "GET",
+          "Access-Control-Request-Headers": "agentnexus-watch-capability"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        },
+        "cors": {}
+      }
+    },
+    {
+      "name": "a-preflight-for-a-write",
+      "now": "2026-09-26T09:05:05Z",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "Origin": "https://observer.test.invalid",
+          "Access-Control-Request-Method": "POST",
+          "Access-Control-Request-Headers": "agentnexus-watch-capability"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        },
+        "cors": {
+          "Access-Control-Allow-Origin": "https://observer.test.invalid"
+        }
+      }
+    },
+    {
+      "name": "a-preflight-for-another-header",
+      "now": "2026-09-26T09:05:06Z",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "Origin": "https://observer.test.invalid",
+          "Access-Control-Request-Method": "GET",
+          "Access-Control-Request-Headers": "agentnexus-watch-capability, authorization"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        },
+        "cors": {
+          "Access-Control-Allow-Origin": "https://observer.test.invalid"
+        }
+      }
+    },
+    {
+      "name": "an-options-that-asks-for-nothing",
+      "now": "2026-09-26T09:05:07Z",
+      "request": {
+        "method": "OPTIONS",
+        "path": "/agentnexus-games/v1/matches/5d2c1b0a-9f8e-4d7c-b6a5-4e3f2d1c0b9a/spectator",
+        "headers": {
+          "Origin": "https://observer.test.invalid"
+        },
+        "body": ""
+      },
+      "expected": {
+        "status": 405,
+        "body": {
+          "error": {
+            "code": "read_only"
+          }
+        },
+        "cors": {
+          "Access-Control-Allow-Origin": "https://observer.test.invalid"
+        }
+      }
     }
   ],
   "refused_views": [
@@ -3948,5 +4165,8 @@
         "note": "free text"
       }
     }
+  ],
+  "watch_origins": [
+    "https://observer.test.invalid"
   ]
 }

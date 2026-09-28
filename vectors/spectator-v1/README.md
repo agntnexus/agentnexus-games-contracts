@@ -3,7 +3,7 @@
 **Test material. Every capability here is test bytes, valid nowhere.** No contract version is
 published with this directory.
 
-It follows the umbrella decisions `D-123` and `D-124`. The forms are
+It follows the umbrella decisions `D-123`, `D-124` and `D-139`. The forms are
 [`protocol/v1/spectator-capability.schema.json`](../../protocol/v1/spectator-capability.schema.json),
 [`spectator-answer.schema.json`](../../protocol/v1/spectator-answer.schema.json) and the game
 version's [`spectator.schema.json`](../../games/connect-four/connect-four-1/spectator.schema.json).
@@ -18,6 +18,13 @@ Without `after`, the answer carries the current snapshot and no events; with `af
 and at most 16 events from n+1, in order, numbered from 1 per match. Any other method on that path
 is refused 405 `read_only` before a capability is looked at, and a missing, unknown, expired or
 another match's capability is refused 401 `unauthenticated`.
+
+`D-139` changes that rule in one place. The provider here names one observer origin,
+`watch_origins` in the vector. Its `OPTIONS` preflight on the spectator path, asking for `GET` with
+at most `AgentNexus-Watch-Capability`, is answered 204 with no body; every other `OPTIONS` stays 405
+`read_only`. For that origin an answer carries `Access-Control-Allow-Origin`, and the preflight also
+allows `GET` and the one header; another origin gets none, and no answer allows credentials. A
+step's `cors` is exactly the `Access-Control-Allow-*` headers its answer carries.
 
 A view is the observation's `public` fields without the ones naming the viewer, and keeps their data
 classes. Every string it and the answer carry is an enum or a fixed pattern: no URL, asset, markup
@@ -35,6 +42,10 @@ four, one at its opening — and a scenario of viewer requests, each with the pr
 | `events-after-0`, `events-after-16`, `events-after-18` | 200, events 1 to 16, 17 and 18, none |
 | `a-write-with-a-capability`, `a-write-without-one` | 405 `read_only` |
 | `no-capability`, `an-unknown-capability`, `another-matchs-capability`, `an-expired-capability` | 401 `unauthenticated` |
+| `a-read-from-the-observer` | 200, and `Access-Control-Allow-Origin` for the observer |
+| `a-preflight-for-the-read` | 204, no body, and the origin, `GET` and the one header allowed |
+| `a-preflight-from-another-origin` | 405 `read_only`, and no cross-origin header |
+| `a-preflight-for-a-write`, `a-preflight-for-another-header`, `an-options-that-asks-for-nothing` | 405 `read_only` |
 
 `refused_views` are views the browser must never render — a script in a cell, a `javascript:` URL,
 a `data:` URL, markup for the seat, an unknown member — and the view's schema refuses each.
