@@ -8,7 +8,12 @@ provider issues. Each rule below is a sentence of `D-123` or `D-124` in the Agen
   body, issues a match-bound, opaque capability of 43 characters of base64url, valid for at most
   300 seconds, answered 200 with `capability` and `expires_at`;
 - any method but `GET` on `/agentnexus-games/v1/matches/{match_id}/spectator` is refused 405
-  `read_only`, before the capability is looked at;
+  `read_only`, before the capability is looked at -- with the one exception `D-139` makes: an
+  `OPTIONS` preflight from an observer origin the provider's configuration names, asking for `GET`
+  with at most the header `AgentNexus-Watch-Capability`, is answered 204 with no body;
+- for such an origin, an answer on the spectator paths carries `Access-Control-Allow-Origin` with
+  it, and the preflight also allows `GET` and that one header; no other origin gets a cross-origin
+  header, and no answer allows credentials;
 - a `GET` without a capability in the header `AgentNexus-Watch-Capability`, or with an unknown,
   expired or another match's, is refused 401 `unauthenticated`, with no reason given;
 - without `after`, the answer carries the current snapshot and no events; with `after=n`, the
@@ -29,6 +34,7 @@ from typing import Any, Final
 LIFETIME: Final = 300
 EVENTS: Final = 16
 HEADER: Final = "AgentNexus-Watch-Capability"
+ALLOW_ORIGIN: Final = "Access-Control-Allow-Origin"
 CAPABILITY: Final = re.compile(
     r"/agentnexus-games/v1/matches/(?P<match_id>[^/?]+)/spectator/capability"
 )
@@ -45,6 +51,10 @@ def _time(value: str) -> datetime:
     return datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=UTC)
 
 
+def _lowered(headers: dict[str, str]) -> dict[str, str]:
+    return {name.lower(): value for name, value in headers.items()}
+
+
 def _refusal(status: int, code: str) -> tuple[int, dict[str, Any]]:
     return status, {"error": {"code": code}}
 
@@ -59,6 +69,8 @@ class Watch:
         self.schemas = schemas
         self.games = games
         self.capabilities: dict[str, tuple[str, datetime]] = {}
+        #: The observer origins the provider's configuration names (`D-139`); none by default.
+        self.watch_origins: tuple[str, ...] = ()
 
     def handle(
         self,
@@ -76,6 +88,8 @@ class Watch:
         watching = SPECTATOR.fullmatch(path)
         if watching is None:
             return 404, None
+        if self._preflight(method, headers):
+            return 204, None
         if method != "GET":
             return _refusal(405, "read_only")
         match_id = watching["match_id"]
@@ -98,6 +112,36 @@ class Watch:
                 raise Undecided("an after that is not a whole number from 0")
             answer["events"] = match["events"][int(after) : int(after) + EVENTS]
         return 200, answer
+
+    def cross_origin(
+        self, method: str, path: str, headers: dict[str, str]
+    ) -> dict[str, str]:
+        """The `Access-Control-Allow-*` headers of the answer to this request (`D-139`)."""
+        if not (CAPABILITY.fullmatch(path) or SPECTATOR.fullmatch(path)):
+            return {}
+        origin = _lowered(headers).get("origin")
+        if origin not in self.watch_origins:
+            return {}
+        allowed = {ALLOW_ORIGIN: origin}
+        if SPECTATOR.fullmatch(path) and self._preflight(method, headers):
+            allowed["Access-Control-Allow-Methods"] = "GET"
+            allowed["Access-Control-Allow-Headers"] = HEADER
+        return allowed
+
+    def _preflight(self, method: str, headers: dict[str, str]) -> bool:
+        """The one preflight `D-139` answers: a configured origin asks to `GET` with the header."""
+        lowered = _lowered(headers)
+        requested = {
+            name.strip().lower()
+            for name in lowered.get("access-control-request-headers", "").split(",")
+            if name.strip()
+        }
+        return (
+            method == "OPTIONS"
+            and lowered.get("origin") in self.watch_origins
+            and lowered.get("access-control-request-method") == "GET"
+            and requested <= {HEADER.lower()}
+        )
 
     def _match(self, match_id: str) -> dict[str, Any]:
         match = self.matches.get(match_id)

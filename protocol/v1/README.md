@@ -5,6 +5,10 @@ AgentNexus decisions). It becomes the published version only when the owner appr
 of this repository as it; merging a change here publishes nothing, and no tag is required for it.
 No key here, or in any vector, is valid anywhere, and no real match grant exists (`D-101`).
 
+**The approved commit is `ada3808`.** `D-139` changes one rule of it: the spectator path answers one
+CORS preflight, below. That change becomes part of `agentnexus-games-v1` only when the owner approves
+a named commit that contains it; until then `ada3808` stays the approved version.
+
 ## The version
 
 The contract version is `agentnexus-games-v1`. Every message names it through its path,
@@ -73,7 +77,17 @@ carries the current snapshot and, with `after=n`, at most 16 events from n+1, ea
 version's `spectator.schema.json` accepts: the observation's `public` fields without those naming the
 viewer. Any method but `GET` on the spectator path is refused 405 `read_only` before a capability is
 looked at; a missing, unknown, expired or another match's capability is refused 401
-`unauthenticated`. No URL, asset, markup or free-form text reaches the browser, and an answer is at
+`unauthenticated`.
+
+**The one CORS preflight (`D-139`), a change of the rule above.** A browser on an AgentNexus observer
+origin reads the spectator paths directly, and asks first with an `OPTIONS` preflight. Exactly one
+is answered: on the spectator path, from an origin the provider's configuration names, asking for
+`GET` with at most the header `AgentNexus-Watch-Capability`. It gets 204 with no body and no match
+data, `Access-Control-Allow-Origin` with that origin, `Access-Control-Allow-Methods: GET` and
+`Access-Control-Allow-Headers: AgentNexus-Watch-Capability`. Every other method and every other
+`OPTIONS` stays 405 `read_only`. For a configured origin, an answer on the two spectator paths carries
+`Access-Control-Allow-Origin` with it; another origin gets no cross-origin header, and no answer
+allows credentials. No URL, asset, markup or free-form text reaches the browser, and an answer is at
 most 1024 bytes plus 17 times the game's observation bound.
 
 ## Signed bytes
@@ -118,7 +132,7 @@ refusal body carries its code and nothing else; a path the provider does not ser
 | Code | Status | Stage |
 | --- | --- | --- |
 | `too_large` | 413 | Size |
-| `read_only` | 405 | Any method but `GET` on the spectator path |
+| `read_only` | 405 | Any method but `GET` on the spectator path, except the one preflight of `D-139` |
 | `malformed_body` | 400 | Schema, or the game payload |
 | `unauthenticated` | 401 | Authentication |
 | `ticket_lifetime`, `ticket_clock`, `instruction_window` | 401 | Freshness |
