@@ -146,3 +146,25 @@ def test_each_refused_case_differs_from_the_accepted_one_in_one_member() -> None
 def test_the_accepted_manifest_is_valid_against_the_schema() -> None:
     (accepted,) = [c["manifest"] for c in cases() if c["expected"] == "accepted"]
     assert valid(accepted, schema())
+
+
+def test_a_manifest_offers_the_solo_game_version_in_its_existing_games() -> None:
+    """`D-142`: a provider offers `connect-four-1-solo` in the `games` its manifest already has."""
+    accepted = next(c for c in cases() if c["expected"] == "accepted")["manifest"]
+    deadline = accepted["games"][0]["turn_deadline_seconds"]
+    offered = {
+        **accepted,
+        "games": [
+            *accepted["games"],
+            {"game_version": "connect-four-1-solo", "turn_deadline_seconds": deadline},
+        ],
+    }
+    assert valid(offered, schema())
+    assert check(offered, ROOT) == []
+    unknown = {
+        **offered,
+        "games": [
+            {"game_version": "connect-four-2-solo", "turn_deadline_seconds": deadline}
+        ],
+    }
+    assert check(unknown, ROOT) == ["game_version"]
