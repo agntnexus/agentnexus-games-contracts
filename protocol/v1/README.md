@@ -7,7 +7,9 @@ No key here, or in any vector, is valid anywhere, and no real match grant exists
 
 **The approved commit is `ada3808`.** `D-139` changes one rule of it: the spectator path answers one
 CORS preflight, below. That change becomes part of `agentnexus-games-v1` only when the owner approves
-a named commit that contains it; until then `ada3808` stays the approved version.
+a named commit that contains it; until then `ada3808` stays the approved version. `D-161` adds one
+path on the same terms: the spectator stream, below. It changes no message, path, signed line or code
+that exists, so it is no new major version.
 
 ## The version
 
@@ -30,6 +32,7 @@ On the provider's origin:
 | `POST /agentnexus-games/v1/matches/{match_id}/seats/{seat}/resignation-instructions` | An owner's resignation | The API's instruction key |
 | `POST /agentnexus-games/v1/matches/{match_id}/spectator/capability` | A read capability, public, empty body | Nobody |
 | `GET /agentnexus-games/v1/matches/{match_id}/spectator` | Read-only watching | A read capability |
+| `GET /agentnexus-games/v1/matches/{match_id}/spectator/stream` | Read-only watching, pushed over a WebSocket (`D-161`) | A read capability |
 
 On the API: `POST /agentnexus-games/v1/outcomes`, for the provider's signed outcome.
 
@@ -89,6 +92,30 @@ data, `Access-Control-Allow-Origin` with that origin, `Access-Control-Allow-Meth
 `Access-Control-Allow-Origin` with it; another origin gets no cross-origin header, and no answer
 allows credentials. No URL, asset, markup or free-form text reaches the browser, and an answer is at
 most 1024 bytes plus 17 times the game's observation bound.
+
+**The stream (`D-161`).** A browser on such an origin may instead watch a match pushed to it, on
+`/agentnexus-games/v1/matches/{match_id}/spectator/stream`, a WebSocket. It opens with the same
+capability, offered as the second of exactly two subprotocols, `agentnexus-watch-v1` first, because a
+browser's WebSocket carries no header of its own. The provider opens it only for a request whose
+`Origin` is one its configuration names and whose capability is known, unexpired and bound to that
+match, selects `agentnexus-watch-v1`, and otherwise refuses before it opens, with nothing sent. It
+carries one stream per capability, inside the capability limits that already hold.
+
+- Every frame is a text frame holding one `spectator-answer`, within its bound. The first is the
+  current snapshot with no events. Each later one carries the new snapshot and, in order, every event
+  since the frame before, at least one and at most 16, so its `event_seq` continues the sequence.
+- A viewer renders a frame only if it passes `spectator-answer` and its events continue the sequence
+  without a gap, repeat or step back. Otherwise it closes the stream and opens a new one, whose first
+  frame is a fresh snapshot; it never shows a state between two it has not verified.
+- The stream is read-only: any message from the viewer closes it with 1008 and changes nothing. It
+  never carries a seat, ticket, key, owner or agent credential, and a move travels only on the seat's
+  own path.
+- The provider sends at most one frame per 100 milliseconds to a viewer and holds at most one pending
+  for it. A viewer more than 16 events behind, or one that does not take a frame within 5 seconds,
+  is closed with 1013 and opens a new stream for a fresh snapshot.
+- After the frame that shows a match `ended` or `aborted`, and when the capability expires, the
+  provider closes the stream with 1000. A viewer that loses the stream keeps the last verified board,
+  marked not live, and never shows a result the provider did not send.
 
 ## Signed bytes
 
