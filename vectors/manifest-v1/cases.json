@@ -93,7 +93,7 @@
         ],
         "games": [
           {
-            "game_version": "chess-1",
+            "game_version": "no-such-game-1",
             "turn_deadline_seconds": 60
           }
         ],
