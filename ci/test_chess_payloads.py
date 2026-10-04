@@ -413,3 +413,29 @@ def test_the_readme_keeps_the_operations_closed() -> None:
         "These are provider limits, not rules, and never a result",
     ):
         assert phrase in text, phrase
+
+
+# Across game versions: neither game's payload passes as the other's (AC-9 of #202).
+
+CONNECT_FOUR = ROOT / "games" / "connect-four" / "connect-four-1"
+CONNECT_FOUR_VECTOR = ROOT / "vectors" / "connect-four-1-payloads" / "cases.json"
+
+
+def connect_four_valid(kind: str) -> list[dict[str, Any]]:
+    cases = json.loads(CONNECT_FOUR_VECTOR.read_text(encoding="utf-8"))[kind]
+    return [c for c in cases if c["expected"] == "valid"]
+
+
+def chess_valid(kind: str) -> list[dict[str, Any]]:
+    return [c for c in vector()[kind] if c["expected"] == "valid"]
+
+
+@pytest.mark.parametrize("payload", ["move", "observation"])
+def test_no_valid_payload_of_one_game_passes_as_the_others(payload: str) -> None:
+    kind, member = f"{payload}_cases", payload
+    chess_cases, connect_four_cases = chess_valid(kind), connect_four_valid(kind)
+    assert chess_cases and connect_four_cases
+    for c in chess_cases:
+        assert not valid(c[member], schema(payload, CONNECT_FOUR)), c["name"]
+    for c in connect_four_cases:
+        assert not valid(c[member], schema(payload)), c["name"]
