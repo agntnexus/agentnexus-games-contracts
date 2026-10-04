@@ -439,3 +439,18 @@ def test_no_valid_payload_of_one_game_passes_as_the_others(payload: str) -> None
         assert not valid(c[member], schema(payload, CONNECT_FOUR)), c["name"]
     for c in connect_four_cases:
         assert not valid(c[member], schema(payload)), c["name"]
+
+
+def test_the_readme_states_the_recognised_dead_positions_and_their_deadline() -> None:
+    """OD-34 (b): kings with fixed pawns are recognised; other pieces are not, and stay so."""
+    text = " ".join((GAME / "README.md").read_text(encoding="utf-8").split())
+    for phrase in (
+        (
+            "kings with pawns alone when no sequence of legal moves can move a pawn, capture "
+            "anything or checkmate"
+        ),
+        "searching every position the kings can reach, completely",
+        "Dead positions with any other piece are not recognised",
+        "opponent holds only a king or the position is a recognised dead position",
+    ):
+        assert phrase in text, phrase

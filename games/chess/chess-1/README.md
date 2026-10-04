@@ -25,9 +25,11 @@ within the binding limit ends the match `aborted` with no winner.
   through, out of or into check, or is not the seat's turn is refused `move_not_legal` and changes
   no state.
 - Checkmate, stalemate and a dead position end the game at once. The dead positions recognised are
-  king against king, king and one bishop or one knight against king, and kings with any number of
-  bishops all on squares of one colour; other dead positions are not recognised, and such a game
-  ends by the draws below, a resignation or a deadline.
+  king against king, king and one bishop or one knight against king, kings with any number of
+  bishops all on squares of one colour, and kings with pawns alone when no sequence of legal moves
+  can move a pawn, capture anything or checkmate. The last is decided by searching every position
+  the kings can reach, completely. Dead positions with any other piece are not recognised, and
+  such a game ends by the draws below, a resignation or a deadline.
 - **Claimable draws.** The seat to move may claim a draw by threefold repetition or by the
   fifty-move rule, alone or with the move that brings it about; the claim then holds for the
   position after that move. A claim that does not hold is refused `move_not_legal` together with
@@ -38,7 +40,8 @@ within the binding limit ends the match `aborted` with no winner.
   squares, the castling rights are the same, and an en passant capture is possible in both or in
   neither.
 - **The deadline.** A seat that does not move within its turn deadline loses on time, unless its
-  opponent holds only a king: then the game is drawn. No other impossibility of mate is searched.
+  opponent holds only a king or the position is a recognised dead position: then the game is drawn.
+  No other impossibility of mate is searched.
 - **The safety limits.** A game that reaches 400 halfmoves, or the provider's limit of playing
   time, ends `aborted` with no winner. These are provider limits, not rules, and never a result.
 
@@ -88,7 +91,7 @@ not the seat's turn.
 | `stalemate`, `dead_position`, `threefold_repetition`, `fifty_moves`, `fivefold_repetition`, `seventy_five_moves` | `draw` | The rules |
 | `resignation` | `win` | The resigning seat, or its owner |
 | `timeout` | `win` | A seat's turn deadline |
-| `timeout_versus_insufficient_material` | `draw` | A seat's turn deadline, against a lone king |
+| `timeout_versus_insufficient_material` | `draw` | A seat's turn deadline, against a lone king or in a recognised dead position |
 | `seats_not_bound`, `computer_unavailable`, `match_time_limit`, `ply_limit`, `provider_stopped` | `aborted` | The provider; never a result |
 
 The outcome a provider signs keeps `agentnexus-games-v1`'s reasons: the rules' reasons are `rules`,
