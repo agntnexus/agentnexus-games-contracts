@@ -64,6 +64,12 @@ jobs:
         # and every negative one fails, and every bound and limit is proven at its edge.
         run: python -m pytest ci/test_game_payloads.py -q
 
+      - name: The Chess payloads and size limits get their published verdicts
+        # The chess-1 and chess-1-solo schemas hold the values D-170 accepted: a UCI move whose
+        # 1968-move vocabulary is derived independently, a typed draw claim inside the move, the
+        # seat's own legal moves kept from viewers, and every bound and limit proven at its edge.
+        run: python -m pytest ci/test_chess_payloads.py -q
+
       - name: The provider wire vector gets its published answers
         # The eight common schemas in protocol/v1 are D-114's with D-123's counter maximum; every
         # key, ticket and message signature is reproducible from its published test seed; every

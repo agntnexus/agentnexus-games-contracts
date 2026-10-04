@@ -15,6 +15,10 @@ access to anything private.
   observation schemas of the first game version.
 - [`vectors/connect-four-1-payloads/`](vectors/connect-four-1-payloads/): their conformance cases
   and the size limits.
+- [`games/chess/chess-1/`](games/chess/chess-1/) and
+  [`games/chess/chess-1-solo/`](games/chess/chess-1-solo/): the move, observation and spectator
+  schemas of Chess, with [`vectors/chess-1-payloads/`](vectors/chess-1-payloads/) for their cases
+  and limits. Not published.
 - [`protocol/v1/`](protocol/v1/): where `agentnexus-games-v1` is kept canonically: the provider
   wire, its paths, signed lines, check order and codes, and its common schemas.
 - [`vectors/manifest-v1/`](vectors/manifest-v1/): provider manifests the check accepts and refuses.
