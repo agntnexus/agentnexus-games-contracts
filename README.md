@@ -28,6 +28,9 @@ access to anything private.
   snapshots and events, refused writes, and views the browser must never render.
 - [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): scenarios of redemption, play and the
   refusals the wire decides, with published test keys that are valid nowhere.
+- [`vectors/chess-1-wire/`](vectors/chess-1-wire/): the same wire for `chess-1` and `chess-1-solo`,
+  with the same test keys: both seats binding, Chess's refusals, a claimed draw and the computer's
+  answer. Not published.
 - [`ci/example_client.py`](ci/example_client.py): test code, an example client of that wire, written from
   the public files alone and played against the reference check in CI, without a network.
 

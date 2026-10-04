@@ -77,6 +77,12 @@ jobs:
         # only, valid nowhere.
         run: python -m pytest ci/test_provider_wire.py -q
 
+      - name: The Chess wire vector gets its published answers
+        # D-170: chess-1 and chess-1-solo over the same wire, with provider-wire-v1's test keys.
+        # The same reference check answers every step; every observation and move passes its Chess
+        # schema; the answers record the game played. Test keys only, valid nowhere.
+        run: python -m pytest ci/test_chess_wire.py -q
+
       - name: An independent example client plays the wire
         # Written from the public files alone, it imports no reference check: its signed
         # messages are accepted step by step, and it discards an answer of an older seat
