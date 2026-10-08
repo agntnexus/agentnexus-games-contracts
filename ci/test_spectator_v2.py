@@ -1123,6 +1123,13 @@ def test_the_first_frame_is_the_snapshot_at_that_instant(name: str) -> None:
     assert (
         ref.stream_refusal([f["expected"] for f in stream["frames"]], snapshot) is None
     )
+    # The first frame the stream builds is that snapshot too.
+    specs = [
+        {key: frame[key] for key in ("now", "through", "status", "facts")}
+        for frame in stream["frames"]
+    ]
+    built = ref.frames(stream["match_id"], match, specs, PROTOCOL, GAMES)
+    assert built[0] == snapshot
 
 
 @pytest.mark.parametrize("name", sorted(STREAMS))
