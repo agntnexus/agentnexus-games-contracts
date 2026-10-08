@@ -24,7 +24,10 @@ instants, whole seconds and a literal `Z`, and the capability's expiry appears i
 A step's `facts` are what the provider has stored: when the current turn began (`turn_started_at`),
 when the match became active (`activated_at`) and which seats are bound (`bound_seats`). The
 reference check plays no game: it derives `timing` from the facts and from the step's `now`, the
-provider's clock. A request without `answer` ignores the facts and gets the version 1 answer.
+provider's clock. A request without `answer` ignores the facts and gets the version 1 answer. A
+provider that can reach a step's state can replay it: the match became active at `activated_at`, the
+move that gave the position was accepted at `turn_started_at`, the seats in `bound_seats` are bound,
+and the answer is made at `now`.
 
 ## What it tests
 
