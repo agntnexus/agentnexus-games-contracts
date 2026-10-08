@@ -1478,10 +1478,14 @@ def test_the_workflow_runs_this_file_before_the_repository_check() -> None:
     assert text.index("python -m pytest ci/test_spectator.py -q") < text.index(runs)
 
 
-def test_the_root_readme_lists_the_version_2_files() -> None:
+def test_the_root_readme_lists_the_version_2_text_in_one_line() -> None:
+    """The root README is not vendored: one line points to the new text, which links the rest."""
     text = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "protocol/v1/spectator-v2.md" in text
-    assert "vectors/spectator-v2/" in text
+    lines = [line for line in text.splitlines() if "spectator-v2" in line]
+    assert len(lines) == 1
+    assert lines[0].startswith(
+        "- [`protocol/v1/spectator-v2.md`](protocol/v1/spectator-v2.md)"
+    )
 
 
 def test_the_prose_states_how_to_ask_and_what_a_v1_only_provider_may_do() -> None:

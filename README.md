@@ -26,6 +26,7 @@ access to anything private.
   API's answers to them.
 - [`vectors/spectator-v1/`](vectors/spectator-v1/): the read-only spectator contract: capabilities,
   snapshots and events, refused writes, and views the browser must never render.
+- [`protocol/v1/spectator-v2.md`](protocol/v1/spectator-v2.md): the spectator answer with deadlines.
 - [`vectors/provider-wire-v1/`](vectors/provider-wire-v1/): scenarios of redemption, play and the
   refusals the wire decides, with published test keys that are valid nowhere.
 - [`vectors/chess-1-wire/`](vectors/chess-1-wire/): the same wire for `chess-1` and `chess-1-solo`,

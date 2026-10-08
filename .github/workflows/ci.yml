@@ -104,6 +104,14 @@ jobs:
         # capability failure unauthenticated, and views the browser must never render refused.
         run: python -m pytest ci/test_spectator.py -q
 
+      - name: The spectator answer, version 2, gets its published answers
+        # D-175: the version 1 answer and the provider's own clock facts, timing. The version 1
+        # files are pinned as published; every answer and every refusal of the vector gets its
+        # published verdict from the schema or the reference check; two streams start with the
+        # snapshot and never go back in time; a provider that implements only version 1 may
+        # ignore answer=2 or refuse it. Test capabilities only, valid nowhere.
+        run: python -m pytest ci/test_spectator_v2.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,
