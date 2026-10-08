@@ -104,12 +104,12 @@ no event records.
 ## The deadlines
 
 - `turn_deadline_at` is the provider's stored `turn_started_at` plus the turn deadline of the game
-  version, which is 60 seconds for the published game versions. A move accepted, and the built-in
-  computer's reply, starts a fresh deadline; there is no cumulative account of a player's time, no
-  increment and no delay. It is `null` when the match is not `active`, when the side to move has no
-  bound seat, and so for a match that has not started, has ended or has aborted. A role without a
-  bound seat gets no running timer: the computer's in a solo match, or a seat that has not yet
-  bound.
+  version, which is 60 seconds for the published game versions. Each accepted move, and the
+  built-in computer's reply, starts a fresh deadline; there is no cumulative account of a player's
+  time, no increment and no delay. It is `null` when the match is not `active`, when the side to
+  move has no bound seat, and so for a match that has not started, has ended or has aborted. A role
+  without a bound seat gets no running timer: the computer's in a solo match, or a seat that has
+  not yet bound.
 - `match_deadline_at` exists for Chess only. It is the provider's `activated_at` plus 50 minutes
   while the match is `active`, and `null` in every other state. For Connect Four, which has no
   active-match limit, it is always `null`: no limit is made up.

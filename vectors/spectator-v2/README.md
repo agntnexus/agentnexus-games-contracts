@@ -14,12 +14,13 @@ changes: [`vectors/spectator-v1/`](../spectator-v1/) and every file it uses stay
 
 ## The contract
 
-A viewer asks for version 2 with `?answer=2` or `?after=n&answer=2`, in that order, or on a stream by
-offering `agentnexus-watch-v2` first and the capability second. The answer is the version 1 answer and
-`timing`: `server_time`, the provider's clock when it created the answer; `turn_deadline_at`, the
-stored start of the current turn plus 60 seconds, or `null`; and `match_deadline_at`, for Chess the
-activation plus 50 minutes while the match is `active`, or `null`. All three are canonical UTC
-instants, whole seconds and a literal `Z`, and the capability's expiry appears in none of them.
+A viewer asks for version 2 with `?answer=2` or `?after=n&answer=2`, in that order, or on a stream
+by offering `agentnexus-watch-v2` first and the capability second. The answer is the version 1
+answer and `timing`: `server_time`, the provider's clock when it created the answer;
+`turn_deadline_at`, the stored start of the current turn plus 60 seconds, or `null`; and
+`match_deadline_at`, for Chess the activation plus 50 minutes while the match is `active`, or
+`null`. All three are canonical UTC instants, whole seconds and a literal `Z`, and the capability's
+expiry appears in none of them.
 
 A step's `facts` are what the provider has stored: when the current turn began (`turn_started_at`),
 when the match became active (`activated_at`) and which seats are bound (`bound_seats`). The
@@ -64,15 +65,15 @@ also catches the two deadlines swapped, a match deadline more than 3000 seconds 
 Chess match without its limit, a shape that is no calendar instant, a view that is not the game
 version's.
 
-`streams` are the frames a provider sends for a Connect Four match and a Chess match, each from a
-snapshot on connect to the frame that shows the end. The first frame is the snapshot, with no
-events, and is what an HTTP read at that instant gives. Every later frame carries the events since
-the frame before, one to 16, and a move starts a fresh 60 seconds for the other seat. Each frame has its
-own `server_time`, which never goes back; the last frame has no deadline. A stream's timing is as
-current as its last event: a frame is built when an event is committed, never for time passing, so
-the vector holds no frame without an event but the first. A change of timing that records no event,
-for example a seat binding that starts a turn deadline, reaches a stream with the next frame and
-an HTTP read shows it at once.
+`streams` holds two streams, and each one's `frames` are what a provider sends for a Connect Four
+match and a Chess match, from a snapshot on connect to the frame that shows the end. The first
+frame is the snapshot, with no events, and is what an HTTP read at that instant gives. Every later
+frame carries the events since the frame before, one to 16, and a move starts a fresh 60 seconds
+for the other seat. Each frame has its own `server_time`, which never goes back; the last frame has
+no deadline. A stream's timing is as current as its last event: a frame is built when an event is
+committed, never for time passing, so the vector holds no frame without an event but the first. A
+change of timing that records no event, for example a seat binding that starts a turn deadline,
+reaches a stream with the next frame, and an HTTP read shows it at once.
 
 `negotiation` shows how a viewer asks: the HTTP forms `?answer=2` and `?after=3&answer=2` are
 version 2, `?answer=1`, `?answer=02`, `?answer=2&after=3`, `?answer=2&answer=2` and the rest are
