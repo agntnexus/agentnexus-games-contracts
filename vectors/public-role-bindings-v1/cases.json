@@ -1,0 +1,106 @@
+{
+  "about": "Synthetic examples for the independently versioned, read-only Connect Four role-binding projection. No match, participant, capability, owner or key is real.",
+  "version": "agentnexus-public-role-bindings-v1",
+  "accepted": [
+    {
+      "name": "zero-bindings",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {}
+      }
+    },
+    {
+      "name": "one-binding",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "first": "second"
+        }
+      }
+    },
+    {
+      "name": "two-bindings-reversed",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "first": "second",
+          "second": "first"
+        }
+      }
+    },
+    {
+      "name": "two-bindings-arena-ordered",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "first": "first",
+          "second": "second"
+        }
+      }
+    }
+  ],
+  "refused": [
+    {
+      "name": "foreign-seat-identifier",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "first": "provider-internal-seat"
+        }
+      }
+    },
+    {
+      "name": "duplicate-seat-mapping",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "first": "first",
+          "second": "first"
+        }
+      }
+    },
+    {
+      "name": "unknown-role",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {
+          "computer": "second"
+        }
+      }
+    },
+    {
+      "name": "session-key",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {},
+        "session_key": "synthetic-private-value"
+      }
+    },
+    {
+      "name": "owner-identity",
+      "answer": {
+        "version": "agentnexus-public-role-bindings-v1",
+        "match_id": "11111111-2222-4333-8444-555555555555",
+        "game_version": "connect-four-1",
+        "roles": {},
+        "owner_email": "owner@example.invalid"
+      }
+    }
+  ]
+}
