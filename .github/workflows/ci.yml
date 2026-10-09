@@ -104,6 +104,11 @@ jobs:
         # capability failure unauthenticated, and views the browser must never render refused.
         run: python -m pytest ci/test_spectator.py -q
 
+      - name: The public role-binding projection is strict and bounded
+        # Zero, one and two provider bindings are accepted; foreign or duplicate public seat ids,
+        # unknown roles and private members are refused without changing spectator-v1.
+        run: python -m pytest ci/test_public_role_bindings.py -q
+
       - name: What this repository holds, and how its CI runs
         # Only declared files; no runtime code; the Apache-2.0 licence unchanged; valid JSON;
         # nothing shaped like a credential or a private host; workflows on GitHub-hosted runners,

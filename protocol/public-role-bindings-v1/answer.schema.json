@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Public Connect Four role bindings",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "match_id",
+    "game_version",
+    "roles"
+  ],
+  "properties": {
+    "version": {
+      "const": "agentnexus-public-role-bindings-v1"
+    },
+    "match_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "game_version": {
+      "const": "connect-four-1"
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "first": {
+          "enum": [
+            "first",
+            "second"
+          ]
+        },
+        "second": {
+          "enum": [
+            "first",
+            "second"
+          ]
+        }
+      }
+    }
+  },
+  "not": {
+    "anyOf": [
+      {
+        "required": [
+          "roles"
+        ],
+        "properties": {
+          "roles": {
+            "required": [
+              "first",
+              "second"
+            ],
+            "properties": {
+              "first": {
+                "const": "first"
+              },
+              "second": {
+                "const": "first"
+              }
+            }
+          }
+        }
+      },
+      {
+        "required": [
+          "roles"
+        ],
+        "properties": {
+          "roles": {
+            "required": [
+              "first",
+              "second"
+            ],
+            "properties": {
+              "first": {
+                "const": "second"
+              },
+              "second": {
+                "const": "second"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
