@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Spectator answer, version 2",
+  "description": "The version 1 spectator answer and the provider's own clock facts, timing. Two rules are in the schema: a match that is awaiting_seats, ended or aborted has no deadline, and Connect Four has no match deadline. The others are in protocol/v1/spectator-v2.md and ci/spectator_v2.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "match_id",
+    "game_version",
+    "status",
+    "event_seq",
+    "snapshot",
+    "events",
+    "timing"
+  ],
+  "properties": {
+    "match_id": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "game_version": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._-]{1,64}$"
+    },
+    "status": {
+      "enum": [
+        "awaiting_seats",
+        "active",
+        "ended",
+        "aborted"
+      ]
+    },
+    "event_seq": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "snapshot": {
+      "$ref": "#/$defs/game_view"
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_seq",
+          "state_version",
+          "view"
+        ],
+        "properties": {
+          "event_seq": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "state_version": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "view": {
+            "$ref": "#/$defs/game_view"
+          }
+        }
+      }
+    },
+    "timing": {
+      "$ref": "#/$defs/timing"
+    }
+  },
+  "if": {
+    "required": [
+      "status"
+    ],
+    "properties": {
+      "status": {
+        "enum": [
+          "awaiting_seats",
+          "ended",
+          "aborted"
+        ]
+      }
+    }
+  },
+  "then": {
+    "properties": {
+      "timing": {
+        "properties": {
+          "turn_deadline_at": {
+            "type": "null"
+          },
+          "match_deadline_at": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  },
+  "else": {
+    "if": {
+      "required": [
+        "game_version"
+      ],
+      "properties": {
+        "game_version": {
+          "pattern": "^connect-four-"
+        }
+      }
+    },
+    "then": {
+      "properties": {
+        "timing": {
+          "properties": {
+            "match_deadline_at": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "game_view": {
+      "type": "object",
+      "description": "The game version's spectator view, validated against its spectator.schema.json"
+    },
+    "utc": {
+      "type": "string",
+      "description": "A canonical UTC instant: whole seconds, a literal Z, no offset and no fraction.",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "timing": {
+      "type": "object",
+      "description": "The provider's own clock facts for this answer: absolute canonical UTC instants, and null where a deadline does not apply.",
+      "additionalProperties": false,
+      "required": [
+        "server_time",
+        "turn_deadline_at",
+        "match_deadline_at"
+      ],
+      "properties": {
+        "server_time": {
+          "description": "The provider's time when it created this snapshot or frame.",
+          "$ref": "#/$defs/utc"
+        },
+        "turn_deadline_at": {
+          "description": "The instant by which the seat whose turn it is must have moved: the provider's stored turn_started_at plus the game version's turn deadline. null when no turn is running.",
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/utc"
+            }
+          ]
+        },
+        "match_deadline_at": {
+          "description": "Chess only: the end of the active-match limit, the provider's activated_at plus 50 minutes while the match is active. null otherwise, and always null for Connect Four.",
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/utc"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
